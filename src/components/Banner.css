@@ -1,0 +1,45 @@
+.banner {
+    color: white;
+    object-fit: contain;
+    height: 448px;
+}
+
+@media (min-width : 1500px) {
+    .banner {
+        position: relative;
+        height: 600px;
+    }
+    .banner--fadeBottom {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 40rem;
+    }
+}
+
+@media (max-width : 768px) {
+    .banner__contents {
+        width: min-content !important;
+        padding-left: 2.3rem;
+        margin-left: 0px !important;
+
+    }
+    .banner__description {
+        font-size: 0.8rem !important; 
+        width: auto !important;
+    }
+
+    .info {
+        text-align: start;
+        padding-right: 1.2rem;
+    }
+ 
+    .space {
+        margin-left: 6px;
+
+    }
+
+    .banner__button {
+
+    }
+}
