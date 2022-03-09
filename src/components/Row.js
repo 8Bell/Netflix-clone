@@ -23,7 +23,7 @@ export default function Row ({title, id, fetchURL, isLargeRow}) {
                 <span 
                 className='arrow'
                 onClick={() => {
-                    document.getElementById(id).scrollLeft -= window.innerWidth - 80;
+                    document.getElementById(id).scrollLeft -= window.innerWidth - 80; //추후 상위 div로 함수 이동할 것
                 }}
                 >
                     {'<'}
