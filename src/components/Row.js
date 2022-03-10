@@ -1,10 +1,13 @@
 import './Row.css'
 import React, {useEffect, useState} from 'react';
 import axios from '../api/axios';
+import MovieModal from './MovieModal';
 
 
 export default function Row ({title, id, fetchURL, isLargeRow}) {
     const[movies, setMovies] = useState([]);
+    const [modalOpen, setModalOpen] = useState(false);
+    const [movieSelected, setMovieSelected] = useState({});
 
     useEffect(() => {
         fetchMovieData();
@@ -14,13 +17,18 @@ export default function Row ({title, id, fetchURL, isLargeRow}) {
         const requests = await axios.get(fetchURL);
         setMovies(requests.data.results);
     }
+
+    const handleClick = (movie) => {
+        setModalOpen(true);
+        setMovieSelected(movie);
+    };
     
   return (
     <section className='row'>
         <h2>{title}</h2>
         <div className='slider'>
             <div className='slider__arrow-left'>
-                <span 
+                <span  
                 className='arrow'
                 onClick={() => {
                     document.getElementById(id).scrollLeft -= window.innerWidth - 80; //추후 상위 div로 함수 이동할 것
@@ -38,6 +46,7 @@ export default function Row ({title, id, fetchURL, isLargeRow}) {
                      src={`https://image.tmdb.org/t/p/original/${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
                      loading='lazy'
                      alt={movie.name}
+                     onClick={()=> handleClick(movie)}
                      />
                 ))};
             </div> 
@@ -50,6 +59,7 @@ export default function Row ({title, id, fetchURL, isLargeRow}) {
                 > {'>'}</span>
             </div>
         </div>
+        {modalOpen && ( <MovieModal {...movieSelected} setModalOpen={setModalOpen}/>)}
     </section>
   )
 }

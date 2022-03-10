@@ -11,6 +11,7 @@ function App() {
       
       <Nav/>
       <Banner/>
+
       <Row
       title = 'NETFILX ORIGINALS'
       id = 'NO'
@@ -37,6 +38,7 @@ function App() {
       id = 'CM'
       fetchURL = {requests.fetchComedyMovies}
       />
+
       {/* <Row
       title = 'Horror Movies'
       id = 'HM'
