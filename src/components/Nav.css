@@ -29,3 +29,39 @@ transition: all 0.5s;
     width: 30px;
     object-fit: contain;
 }
+.nav__inputs {
+    position: fixed;
+    background-color: aqua;
+    left: 46%;
+    top:2%;
+    transform: translate(-50, -50);
+    
+
+} 
+.nav__input {
+    position: absolute;
+    display: inline-flex;
+    width: 200px;
+    align-items: left;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    color: white;
+    padding: 7px;
+    border: none;
+    z-index: 3;
+}
+.nav__input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.nav__inputIcon {
+    position: absolute;
+    display: inline-flex;
+    width: 20px;
+    height: 20px;
+    padding-left: 184px;
+    padding-top: 4px;
+    opacity: 60%;
+    z-index: 4;
+    pointer-events: none;
+}
