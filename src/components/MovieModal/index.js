@@ -14,6 +14,11 @@ function MovieModal({
   return (
     <div className='presentation' role='presentation'>
         <div className='wrapper-modal'>
+            <div 
+            className='modalBackground' 
+            style={{ position: 'absolute', width: '100%', height:'100%'}}
+            onClick={()=> setModalOpen(false)}
+            />
             <div className='modal'>
                 <span
                 onClick={()=> setModalOpen(false)}
