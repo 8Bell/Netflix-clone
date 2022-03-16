@@ -1,9 +1,23 @@
+@media (max-width: 768px){
+    .nav__logo {
+        width: 20px !important;
+        left: 20px !important ;
+    }
+    .nav__avatar {
+        right: 20px !important ;
+    }
+    .nav__inputs{
+        display: none;
+    }
+
+}
+
 .nav {
 position: fixed;
 top: 0;
 width: 100%;
 height: 30px;
-z-index: 1;
+z-index: 5;
 padding: 20px;
 display: flex;
 justify-content: space-between;
@@ -13,7 +27,7 @@ transition: all 0.5s;
 }
 
 .nav__black {
-    background-color: #111;
+    background-color: #000;
 }
 
 .nav__logo {
@@ -21,6 +35,7 @@ transition: all 0.5s;
     left: 40px;
     width: 80px;
     object-fit: contain;
+    
 }
 
 .nav__avatar {
@@ -32,11 +47,10 @@ transition: all 0.5s;
 .nav__inputs {
     position: fixed;
     background-color: aqua;
-    left: 46%;
+    left: 45%;
     top:2%;
     transform: translate(-50, -50);
     
-
 } 
 .nav__input {
     position: absolute;

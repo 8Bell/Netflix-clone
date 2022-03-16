@@ -21,7 +21,7 @@ const Layout = () => {
 function App() {
   return (
     <div className='App'>
-      <Routes>
+      <Routes >
         <Route path='/' element={<Layout />}>
           <Route index element={<MainPage/>}/>
           <Route path=':movieId' element={<DetailPage/>}/>

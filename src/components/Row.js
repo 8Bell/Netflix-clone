@@ -13,7 +13,7 @@ export default function Row ({title, id, fetchURL, isLargeRow }) {
     const[movies, setMovies] = useState([]);
     const [modalOpen, setModalOpen] = useState(false);
     const [movieSelected, setMovieSelected] = useState({});
-    const w = Math.round(window.innerWidth/200)
+    const w = Math.round(window.innerWidth/250)
   
     
     
@@ -42,7 +42,7 @@ export default function Row ({title, id, fetchURL, isLargeRow }) {
             className="row__posters"
 
             style={{
-                padding: '20px',
+                padding: '20px 0 50px 0',
                 "--swiper-navigation-color": "#ddd",
                 "--swiper-navigation-size": "30px" }}
 
@@ -51,7 +51,7 @@ export default function Row ({title, id, fetchURL, isLargeRow }) {
       slidesPerView={w} // 창 크기에 따라 표시되는 영화의 개수 조절
       slidesPerGroup={Math.round(w/2)} // 표시되는 영화 개수의 절반만 슬라이드
       loop={true}
-      mousewheel={true}
+      //mousewheel={true}
       navigation
 
 

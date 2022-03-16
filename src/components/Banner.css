@@ -33,8 +33,8 @@
       margin-left: 6px;
     }
     .banner__button {
-      font-size: 0.8rem !important;
-      border-radius: 4px !important;
+      font-size: 1rem !important;
+      border-radius: 50px !important;
     }
   }
   .banner__contents {
@@ -79,9 +79,9 @@
     border: none;
     font-size: 1rem;
     font-weight: 700;
-    border-radius: 0.2vw;
-    padding: 0.4rem 1.8rem 0.4rem 1rem;
-    margin-right: 1rem;
+    border-radius: 0.8vw;
+    padding: 0.5rem 1.3rem 0.4rem 1rem;
+    margin: 1rem 1rem 0 0;
   }
   .banner__button:hover {
     color: #000;

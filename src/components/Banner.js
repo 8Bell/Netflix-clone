@@ -11,18 +11,15 @@ export default function Banner( fetchURL ) {
 
     const [movie, setMovie] = useState([]);
     const [isClicked, setIsClicked] = useState(false);
-    const [bannerModal, setBannerModal] = useState(false)
-    const [bannerMovieSelected, setBannerMovieSelected] = useState({});
 
     // 모달창 열기
-    
-
+    const [bannerModal, setBannerModal] = useState(false)
+    const [bannerMovieSelected, setBannerMovieSelected] = useState({});
     const handleClick = (movie) => {
         setBannerModal(true);
         setBannerMovieSelected(movie);
         console.log(bannerMovieSelected);
     };
-
     //
 
     useEffect(() => {
@@ -75,13 +72,15 @@ export default function Banner( fetchURL ) {
                     <div className='banner__buttons'>
                         <button 
                         className='banner__button play'
-                        onClick={() => setIsClicked(true)}
-                        > Play</button>
+                        onClick={() => setIsClicked(true)}> 
+                        {window.innerWidth < 768 ? 'Play': 'Play'}
+                        </button>
                         <button 
                         className='banner__button info'
                         onClick={()=> handleClick(movie)}
                         >
-                            <div className='space'></div>More Information
+                            <div className='space'></div>
+                            { window.innerWidth < 768 ? 'Info': 'More Information'}
                         </button>
                     </div>
                     {/* Div > 2 BUTTONS */}

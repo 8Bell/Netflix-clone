@@ -1,8 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components'
+import './Footer.css'
+
 
 export default function Footer() {
+
+    const [searchValue, setSearchValue] = useState("")
+    const navigate = useNavigate()
+
+    const handleChange = (e) => {
+        setSearchValue(e.target.value);
+        navigate(`/search?q=${e.target.value}`);
+      }
+
   return (
+      <>
+      <div className='footer'>
+       <div className='footer__inputs'>
+        <input value={searchValue} onChange={handleChange} className='footer__input' type='text' placeholder='Search'/>
+        <img src="https://img.icons8.com/ios-glyphs/30/ffffff/search--v1.png" className='footer__inputIcon'/>
+        </div>
+      </div>
     <FooterContainer>
 <FooterContent>
 <FooterLinkContainer>
@@ -24,6 +43,7 @@ export default function Footer() {
 </FooterLinkContainer>
 </FooterContent>
     </FooterContainer>
+      </>
   )
 }
 
