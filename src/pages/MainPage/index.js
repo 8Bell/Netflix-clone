@@ -7,7 +7,9 @@ import Row from '../../components/Row';
 export default function MainPage() {
   return (
     <div>
-        <Banner/>
+        <Banner
+        fetchURL = {requests.fetchTrending}
+        />
 
 <Row
 title = 'NETFILX ORIGINALS'

@@ -2,12 +2,28 @@ import axios from '../api/axios';
 import React, { useEffect, useState } from 'react'
 import requests from "../api/requests";
 import "./Banner.css"
+import './Row.css'
 import styled from 'styled-components';
+import Row from './Row';
+import MovieModal from './MovieModal';
 
-export default function Banner() {
+export default function Banner( fetchURL ) {
 
     const [movie, setMovie] = useState([]);
     const [isClicked, setIsClicked] = useState(false);
+    const [bannerModal, setBannerModal] = useState(false)
+    const [bannerMovieSelected, setBannerMovieSelected] = useState({});
+
+    // 모달창 열기
+    
+
+    const handleClick = (movie) => {
+        setBannerModal(true);
+        setBannerMovieSelected(movie);
+        console.log(bannerMovieSelected);
+    };
+
+    //
 
     useEffect(() => {
         fetchData();
@@ -32,7 +48,6 @@ export default function Banner() {
             params: { append_to_response: 'videos' },
         });
         setMovie(movieDetail);
-        console.log('movie', movie)
     };
 
     const truncate = (str, n) => {
@@ -42,6 +57,7 @@ export default function Banner() {
     if (!isClicked) {
 
         return (
+            <>
             <header
                 className='banner'
                 style={{
@@ -57,10 +73,14 @@ export default function Banner() {
                         {movie?.title || movie?.name || movie?.original_name}
                     </h1>
                     <div className='banner__buttons'>
-                        <button className='banner__button play'
-                            onClick={() => setIsClicked(true)}
+                        <button 
+                        className='banner__button play'
+                        onClick={() => setIsClicked(true)}
                         > Play</button>
-                        <button className='banner__button info'>
+                        <button 
+                        className='banner__button info'
+                        onClick={()=> handleClick(movie)}
+                        >
                             <div className='space'></div>More Information
                         </button>
                     </div>
@@ -70,9 +90,12 @@ export default function Banner() {
                 </div>
                 <div className='banner--fadeBottom' />
             </header>
+            {bannerModal && ( <MovieModal {...bannerMovieSelected} setModalOpen={setBannerModal}/>)}
+            </>
         );
     } else {
         return (
+            <>
             <Container>
                 <HomeContainer>
                     <Iframe
@@ -85,6 +108,8 @@ export default function Banner() {
                     ></Iframe>
                 </HomeContainer>
             </Container>
+            <Row bannerModal={bannerModal} bannerMovieSelected={bannerMovieSelected}/>
+          </>
         )
     }
 }

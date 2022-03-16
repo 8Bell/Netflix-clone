@@ -3,21 +3,22 @@ import React, {useEffect, useState} from 'react';
 import axios from '../api/axios';
 import MovieModal from './MovieModal';
 import { Swiper, SwiperSlide} from "swiper/react";
-import { Navigation, A11y, Mousewheel, EffectCoverflow  } from 'swiper';
+import { Navigation, A11y, Mousewheel  } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
 
 
-export default function Row ({title, id, fetchURL, isLargeRow}) {
+export default function Row ({title, id, fetchURL, isLargeRow }) {
     const[movies, setMovies] = useState([]);
     const [modalOpen, setModalOpen] = useState(false);
     const [movieSelected, setMovieSelected] = useState({});
-    const w = window.innerWidth
-
+    const w = Math.round(window.innerWidth/200)
+  
+    
+    
     useEffect(() => {
         fetchMovieData();
-        
     }, [fetchURL]);
 
     const fetchMovieData = async () => {   //async - await 비동기 요청
@@ -28,39 +29,32 @@ export default function Row ({title, id, fetchURL, isLargeRow}) {
     const handleClick = (movie) => {
         setModalOpen(true);
         setMovieSelected(movie);
+        console.log(movieSelected);
     };
     
   return (
     <section className='row'>
         <h2>{title}</h2>
         <div className='slider'>
-            {/* <div className='slider__arrow-left'>
-                <span  
-                className='arrow'
-                onClick={() => {
-                    document.getElementById(id).scrollLeft -= window.innerWidth - 80; //추후 상위 div로 함수 이동할 것
-                }}
-                >
-                    {'<'}
-
-                </span>
-            </div> */}
        
             <Swiper  
             id={id} 
             className="row__posters"
+
             style={{
                 padding: '20px',
                 "--swiper-navigation-color": "#ddd",
                 "--swiper-navigation-size": "30px" }}
 
-      modules={[ Navigation, A11y, Mousewheel,EffectCoverflow ]}
+      modules={[ Navigation, A11y, Mousewheel ]}
       spaceBetween={20}
-      slidesPerView={`${Math.round(window.innerWidth/200)}`}
-      //slidesPerGroup={6}
-      //loop={true}
+      slidesPerView={w} // 창 크기에 따라 표시되는 영화의 개수 조절
+      slidesPerGroup={Math.round(w/2)} // 표시되는 영화 개수의 절반만 슬라이드
+      loop={true}
       mousewheel={true}
       navigation
+
+
             >
                 {movies.map((movie) => (
                     <SwiperSlide>
