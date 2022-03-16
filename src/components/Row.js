@@ -39,6 +39,7 @@ export default function Row ({title, id, fetchURL, isLargeRow }) {
        
             <Swiper  
             id={id} 
+            key={id}
             className="row__posters"
 
             style={{
@@ -53,8 +54,6 @@ export default function Row ({title, id, fetchURL, isLargeRow }) {
       loop={true}
       //mousewheel={true}
       navigation
-
-
             >
                 {movies.map((movie) => (
                     <SwiperSlide>

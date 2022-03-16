@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom';
+import Footer from './Footer';
 import "./Nav.css"
 
-export default function Nav() {
+export default function Nav({ssv}) {
 
 const [show, setShow] = useState(false);
 const [searchValue, setSearchValue] = useState("")
@@ -28,6 +29,13 @@ const handleChange = (e) => {
   navigate(`/search?q=${e.target.value}`);
 }
 
+const Home = () => {
+  navigate('/')
+  setSearchValue('')
+  ssv('')
+  window.location.reload()
+}
+
 
   return (
     <nav className= {`nav ${ show && 'nav__black' } `}>     
@@ -37,7 +45,8 @@ const handleChange = (e) => {
         src=
         {window.innerWidth < 768 ? 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Netflix_2015_N_logo.svg/185px-Netflix_2015_N_logo.svg.png':'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/170px-Netflix_2015_logo.svg.png'}
         className='nav__logo'
-        onClick={() => window.location.reload()}
+        onClick={Home}
+        href="/"
         />
         <div className='nav__inputs'>
         <input value={searchValue} onChange={handleChange} className='nav__input' type='text' placeholder='Search'/>
@@ -49,5 +58,6 @@ const handleChange = (e) => {
         className='nav__avatar'
         />
     </nav>
+
   )
 }

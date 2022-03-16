@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components'
 import './Footer.css'
+import Nav from './Nav';
 
 
 export default function Footer() {
@@ -16,6 +17,7 @@ export default function Footer() {
 
   return (
       <>
+      <Nav ssv={setSearchValue}/>
       <div className='footer'>
        <div className='footer__inputs'>
         <input value={searchValue} onChange={handleChange} className='footer__input' type='text' placeholder='Search'/>
