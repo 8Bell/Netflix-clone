@@ -13,9 +13,11 @@ export default function Row ({title, id, fetchURL, isLargeRow}) {
     const[movies, setMovies] = useState([]);
     const [modalOpen, setModalOpen] = useState(false);
     const [movieSelected, setMovieSelected] = useState({});
+    const w = window.innerWidth
 
     useEffect(() => {
         fetchMovieData();
+        
     }, [fetchURL]);
 
     const fetchMovieData = async () => {   //async - await 비동기 요청
@@ -54,12 +56,9 @@ export default function Row ({title, id, fetchURL, isLargeRow}) {
 
       modules={[ Navigation, A11y, Mousewheel,EffectCoverflow ]}
       spaceBetween={20}
-      slidesPerView={5}
-      slidesPerGroup={5}
-      loop={true}
-      keyboard={{
-        enabled: true,
-      }}
+      slidesPerView={`${Math.round(window.innerWidth/200)}`}
+      //slidesPerGroup={6}
+      //loop={true}
       mousewheel={true}
       navigation
             >
