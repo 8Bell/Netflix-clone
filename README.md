@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# TODO.app v2.0.1
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br>
 
-## Available Scripts
+### 직접 사용해보세요 ⇩ 
 
-In the project directory, you can run:
+<br>
+https://netfilx-clone.netlify.app <br>
 
-### `npm start`
+<br>
+<br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Mobile
+<img width="592" alt="netflix-clone-m" src="https://user-images.githubusercontent.com/53814275/158690334-7b63120b-e5be-4b95-9997-665580c7d3c9.png">
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<br>
 
-### `npm test`
+# PC
+<img width="1423" alt="netflix clone-pc" src="https://user-images.githubusercontent.com/53814275/158690367-c58db5ca-def8-4801-acff-b96ecade44ee.png">
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<br>
+<br>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# 📢
 
-### `npm run eject`
+### swipe 를 사용하여 slide를 구현했습니다.
+<br>
+- 페이지 가로 크기에 따라 슬라이드에 표시되는 영화의 수와 한번 슬라이드시 넘겨지는 영화의 수를 다르게 적용하였습니다. <br>
+- 슬라이드에 loop를 적용하여 슬라이드가 끊기지 않도록 했습니다.
+<br>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Movie Modal 창 외부를 클릭 시 창이 닫히도록 구현했습니다.
+<br>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 메인화면에서 'More information' 버튼 클릭시에도 Movie Modal 창이 나오도록 구현했습니다.
+<br>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 모바일 창에서 표시되는 Nav bar 아이콘을 수정하였고, 검색바가 footer로 가도록 배치했습니다.
+<br>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 검색페이지 등에서 Nav bar 로고 클릭 시, 검색창을 비우고 홈화면으로 이동하도록 구현했습니다.
