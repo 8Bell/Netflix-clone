@@ -2,6 +2,12 @@ import './Row.css'
 import React, {useEffect, useState} from 'react';
 import axios from '../api/axios';
 import MovieModal from './MovieModal';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
 
 export default function Row ({title, id, fetchURL, isLargeRow}) {
@@ -38,8 +44,21 @@ export default function Row ({title, id, fetchURL, isLargeRow}) {
 
                 </span>
             </div>
-            <div id={id} className="row__posters">
+       
+            <Swiper  
+            id={id} 
+            className="row__posters"
+
+            modules={[Navigation, Pagination, Scrollbar, A11y]}
+      spaceBetween={5}
+      slidesPerView={5}
+      navigation={false}
+      pagination={false}
+      scrollbar={false}
+
+            >
                 {movies.map((movie) => (
+                    <SwiperSlide>
                      <img
                      key={movie.id}
                      className={`row__poster ${isLargeRow && "row__posterLarge"}`}
@@ -48,8 +67,13 @@ export default function Row ({title, id, fetchURL, isLargeRow}) {
                      alt={movie.name}
                      onClick={()=> handleClick(movie)}
                      />
-                ))};
-            </div> 
+                     </SwiperSlide>
+                ))}
+                </Swiper >
+           
+        
+
+
             <div className='slider__arrow-right'>
                 <span 
                 className='arrow'
