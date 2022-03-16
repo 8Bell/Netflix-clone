@@ -2,12 +2,11 @@ import './Row.css'
 import React, {useEffect, useState} from 'react';
 import axios from '../api/axios';
 import MovieModal from './MovieModal';
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { Swiper, SwiperSlide} from "swiper/react";
+import { Navigation, A11y, Mousewheel, EffectCoverflow  } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+
 
 
 export default function Row ({title, id, fetchURL, isLargeRow}) {
@@ -33,7 +32,7 @@ export default function Row ({title, id, fetchURL, isLargeRow}) {
     <section className='row'>
         <h2>{title}</h2>
         <div className='slider'>
-            <div className='slider__arrow-left'>
+            {/* <div className='slider__arrow-left'>
                 <span  
                 className='arrow'
                 onClick={() => {
@@ -43,19 +42,26 @@ export default function Row ({title, id, fetchURL, isLargeRow}) {
                     {'<'}
 
                 </span>
-            </div>
+            </div> */}
        
             <Swiper  
             id={id} 
             className="row__posters"
+            style={{
+                padding: '20px',
+                "--swiper-navigation-color": "#ddd",
+                "--swiper-navigation-size": "30px" }}
 
-            modules={[Navigation, Pagination, Scrollbar, A11y]}
-      spaceBetween={5}
+      modules={[ Navigation, A11y, Mousewheel,EffectCoverflow ]}
+      spaceBetween={20}
       slidesPerView={5}
-      navigation={false}
-      pagination={false}
-      scrollbar={false}
-
+      slidesPerGroup={5}
+      loop={true}
+      keyboard={{
+        enabled: true,
+      }}
+      mousewheel={true}
+      navigation
             >
                 {movies.map((movie) => (
                     <SwiperSlide>
@@ -74,14 +80,14 @@ export default function Row ({title, id, fetchURL, isLargeRow}) {
         
 
 
-            <div className='slider__arrow-right'>
+            {/* <div className='slider__arrow-right'>
                 <span 
                 className='arrow'
                 onClick={() => {
                     document.getElementById(id).scrollLeft += window.innerWidth - 80;
                 }}
                 > {'>'}</span>
-            </div>
+            </div> */}
         </div>
         {modalOpen && ( <MovieModal {...movieSelected} setModalOpen={setModalOpen}/>)}
     </section>
