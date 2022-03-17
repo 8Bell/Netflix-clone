@@ -36,12 +36,11 @@ export default function Row ({title, id, fetchURL, isLargeRow }) {
     <section className='row'>
         <h2>{title}</h2>
         <div className='slider'>
-       
-            <Swiper  
+
+            <Swiper
             id={id} 
             key={id}
             className="row__posters"
-
             style={{
                 padding: '20px 0 50px 0',
                 "--swiper-navigation-color": "#ddd",
@@ -55,10 +54,10 @@ export default function Row ({title, id, fetchURL, isLargeRow }) {
       //mousewheel={true}
       navigation
             >
+                
                 {movies.map((movie) => (
-                    <SwiperSlide>
+                    <SwiperSlide key={movie.id} >
                      <img
-                     key={movie.id}
                      className={`row__poster ${isLargeRow && "row__posterLarge"}`}
                      src={`https://image.tmdb.org/t/p/original/${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
                      loading='lazy'
@@ -67,19 +66,8 @@ export default function Row ({title, id, fetchURL, isLargeRow }) {
                      />
                      </SwiperSlide>
                 ))}
-                </Swiper >
-           
-        
-
-
-            {/* <div className='slider__arrow-right'>
-                <span 
-                className='arrow'
-                onClick={() => {
-                    document.getElementById(id).scrollLeft += window.innerWidth - 80;
-                }}
-                > {'>'}</span>
-            </div> */}
+                       </Swiper >
+               
         </div>
         {modalOpen && ( <MovieModal {...movieSelected} setModalOpen={setModalOpen}/>)}
     </section>

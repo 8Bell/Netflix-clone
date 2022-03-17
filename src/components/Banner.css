@@ -7,6 +7,7 @@
     .banner {
       position: relative;
       height: 600px;
+      
     }
     .banner--fadeBottom {
       position: absolute;
@@ -62,7 +63,7 @@
       180deg,
       transparent,
       rgba(37, 37, 37, 0.61),
-      #111
+      #000
     );
   }
   .banner__buttons {

@@ -4,13 +4,14 @@ import requests from "../api/requests";
 import "./Banner.css"
 import './Row.css'
 import styled from 'styled-components';
-import Row from './Row';
 import MovieModal from './MovieModal';
 
-export default function Banner( fetchURL ) {
+export default function Banner() {
 
     const [movie, setMovie] = useState([]);
     const [isClicked, setIsClicked] = useState(false);
+    const [noVideo, setNoVideo] = useState(true)
+
 
     // 모달창 열기
     const [bannerModal, setBannerModal] = useState(false)
@@ -25,6 +26,10 @@ export default function Banner( fetchURL ) {
     useEffect(() => {
         fetchData();
     }, []);
+
+    useEffect(() => {
+        isVideo();
+    }, [movie]);
 
     const fetchData = async () => {
 
@@ -45,13 +50,25 @@ export default function Banner( fetchURL ) {
             params: { append_to_response: 'videos' },
         });
         setMovie(movieDetail);
+
     };
+
+    const isVideo = async ()=> {
+
+        if(movie.videos.results.length != 0){
+            setNoVideo(false);}
+
+        console.log(movie)
+        console.log(movie.videos.results.length)
+        console.log(typeof movie.videos.results[0].key)
+        console.log('novideo',noVideo)
+    }
 
     const truncate = (str, n) => {
         return str?.length > n ? str.substr(0, n - 1) + "..." : str;
     }
 
-    if (!isClicked) {
+    if (!isClicked ) {
 
         return (
             <>
@@ -70,11 +87,13 @@ export default function Banner( fetchURL ) {
                         {movie?.title || movie?.name || movie?.original_name}
                     </h1>
                     <div className='banner__buttons'>
+                        { ! noVideo && 
                         <button 
                         className='banner__button play'
                         onClick={() => setIsClicked(true)}> 
                         {window.innerWidth < 768 ? 'Play': 'Play'}
                         </button>
+                        }
                         <button 
                         className='banner__button info'
                         onClick={()=> handleClick(movie)}
@@ -107,10 +126,9 @@ export default function Banner( fetchURL ) {
                     ></Iframe>
                 </HomeContainer>
             </Container>
-            <Row bannerModal={bannerModal} bannerMovieSelected={bannerMovieSelected}/>
           </>
         )
-    }
+ } 
 }
 
 const Container = styled.div`
