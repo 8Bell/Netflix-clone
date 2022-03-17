@@ -1,4 +1,4 @@
-# TODO.app v2.0.1
+# Netfilx Clone v3.6
 
 <br>
 
@@ -42,3 +42,6 @@ https://netfilx-clone.netlify.app <br>
 <br>
 
 ### 검색페이지 등에서 Nav bar 로고 클릭 시, 검색창을 비우고 홈화면으로 이동하도록 구현했습니다.
+<br>
+
+### 영상의 링크가 없는 경우 Banner 에서 Play 버튼이 사라지도록 하였습니다. 
