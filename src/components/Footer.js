@@ -32,9 +32,17 @@ export default function Footer() {
     </FooterLinkTitle>
     <FooterLinkContent>
         <FooterLink href="https://help.netflix.com/ko/node.412">넷플릭스 소개</FooterLink>
+        <FooterLink href="https://help.netflix.com/ko">자주 묻는 질문</FooterLink>
         <FooterLink href="https://help.netflix.com/ko">고객 센터</FooterLink>
         <FooterLink href="https://help.netflix.com/ko">미디어 센터</FooterLink>
+        <FooterLink href="https://help.netflix.com/ko">입사 정보</FooterLink>
         <FooterLink href="https://help.netflix.com/ko">이용 약관</FooterLink>
+        <FooterLink href="https://help.netflix.com/ko">개인 정보</FooterLink>
+        <FooterLink href="https://help.netflix.com/ko">회사 정보</FooterLink>
+        <FooterLink href="https://help.netflix.com/ko">속도 테스트</FooterLink>
+        <FooterLink href="https://help.netflix.com/ko">쿠키 설정</FooterLink>
+        <FooterLink href="https://help.netflix.com/ko">법적 고지</FooterLink>
+        <FooterLink href="https://help.netflix.com/ko">문의 하기</FooterLink>
 
     </FooterLinkContent>
     <FooterDescContainer>
@@ -77,14 +85,14 @@ width: 500px;
 
 const FooterLinkTitle = styled.h1`
 color: gray;
-font-size: 17px;
+font-size: 18px;
 `;
 
 const FooterLinkContent = styled.div`
 display: flex;
 justify-content: space-between;
 flex-wrap: wrap;
-margin-top: 35px;
+margin: 35px 0 40px 0;
 
 @media (max-width: 768) {
     margin-top: 26;
@@ -93,8 +101,9 @@ margin-top: 35px;
 
 const FooterLink = styled.a`
 color: gray;
-font-size:14px;
+font-size:15px;
 width: 110px;
+height: 40px;
 text-decoration: none;
 
 &:hover {
@@ -103,6 +112,7 @@ text-decoration: none;
 
 @media (max-width:768px) {
     margin-bottom: 16px;
+    height: 20px;
 }
 `;
 
@@ -115,6 +125,7 @@ margin-top: 30px;
 
 const FooterDescRights = styled.h2`
 color: white;
-font-size: 14px;
+font-size: 16px;
 text-align: center;
+margin-bottom: 10px;
 `
