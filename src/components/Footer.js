@@ -39,7 +39,7 @@ export default function Footer() {
         <FooterLink href="https://help.netflix.com/ko">이용 약관</FooterLink>
         <FooterLink href="https://help.netflix.com/ko">개인 정보</FooterLink>
         <FooterLink href="https://help.netflix.com/ko">회사 정보</FooterLink>
-        <FooterLink href="https://help.netflix.com/ko">속도 테스트</FooterLink>
+        <FooterLink href="https://fast.com">속도 테스트</FooterLink>
         <FooterLink href="https://help.netflix.com/ko">쿠키 설정</FooterLink>
         <FooterLink href="https://help.netflix.com/ko">법적 고지</FooterLink>
         <FooterLink href="https://help.netflix.com/ko">문의 하기</FooterLink>

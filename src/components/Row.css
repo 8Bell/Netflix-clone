@@ -42,29 +42,7 @@
     justify-content: center;
     visibility: hidden;
   }
-  .arrow {
-    transition: 400ms all ease-in-out;
-  }
-  .arrow:hover {
-    transition: 400ms all ease-in-out;
-    transform: scale(1.5);
-  }
-  .slider:hover .slider__arrow-left {
-    transition: 400ms all ease-in-out;
-    visibility: visible;
-  }
-  .slider:hover .slider__arrow-right {
-    transition: 400ms all ease-in-out;
-    visibility: visible;
-  }
-  .slider__arrow-left:hover {
-    background: rgba(20, 20, 20, 0.5);
-    transition: 400ms all ease-in-out;
-  }
-  .slider__arrow-right:hover {
-    background: rgba(20, 20, 20, 0.5);
-    transition: 400ms all ease-in-out;
-  }
+
   
   .row__posters {
     display: flex;
@@ -89,9 +67,10 @@
   }
   .row__posterLarge {
     max-height: 320px;
+    margin-bottom: 10px;
   }
   .row__posterLarge:hover {
-    transform: scale(1.1);
+    transform: scale(1.06);
     opacity: 1;
   }
   
@@ -115,12 +94,21 @@
     display: flex;
     align-items: center;
   }
+  .row__poster-title{
+    text-align: center;
+    margin-top: 3px;
+    color: snow;
+  }
+
   @media screen and (min-width: 1200px) {
     .row__poster {
       max-height: 160px;
     }
     .row__posterLarge {
       max-height: 360px;
+    }
+    .row__poster-title {
+      font-size: 1rem;
     }
   }
   @media screen and (max-width: 768px) {
@@ -129,5 +117,8 @@
     }
     .row__posterLarge {
       max-height: 280px;
+    }
+    .row__poster-title {
+      font-size: 0.8rem;
     }
   }

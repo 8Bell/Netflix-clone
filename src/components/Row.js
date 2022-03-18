@@ -57,6 +57,7 @@ export default function Row ({title, id, fetchURL, isLargeRow }) {
                 
                 {movies.map((movie) => (
                     <SwiperSlide key={movie.id} >
+                        <div>
                      <img
                      className={`row__poster ${isLargeRow && "row__posterLarge"}`}
                      src={`https://image.tmdb.org/t/p/original/${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
@@ -64,6 +65,8 @@ export default function Row ({title, id, fetchURL, isLargeRow }) {
                      alt={movie.name}
                      onClick={()=> handleClick(movie)}
                      />
+                     <p className='row__poster-title'>{movie?.title || movie?.name || movie?.original_name}</p>
+                     </div>
                      </SwiperSlide>
                 ))}
                        </Swiper >
