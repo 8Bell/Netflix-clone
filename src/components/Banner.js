@@ -55,7 +55,7 @@ export default function Banner() {
 
     const isVideo = async ()=> {
 
-        if(movie.videos.results.length != 0){
+        if(movie.videos.results.length !== 0){
             setNoVideo(false);}
 
         console.log(movie)
