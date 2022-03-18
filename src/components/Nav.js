@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate, Link } from 'react-router-dom';
-import Footer from './Footer';
+import { useNavigate } from 'react-router-dom';
 import "./Nav.css"
 
 export default function Nav({ssv}) {
