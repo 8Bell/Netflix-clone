@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import "./Nav.css"
@@ -50,7 +51,8 @@ const Home = () => {
         <div className='nav__inputs'>
           <div className='nav__searchbar'>
         <input value={searchValue} onChange={handleChange} className='nav__input' type='text' placeholder='Search'/>
-        <img src="https://img.icons8.com/ios-glyphs/30/ffffff/search--v1.png" className='nav__inputIcon'/>
+        // eslint-disable-next-line jsx-a11y/alt-text
+        <img src="https://img.icons8.com/ios-glyphs/30/ffffff/search--v1.png" className='nav__inputIcon' alt=''/>
           </div>
         </div>
         <img

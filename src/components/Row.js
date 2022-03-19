@@ -19,6 +19,7 @@ export default function Row ({title, id, fetchURL, isLargeRow }) {
     
     useEffect(() => {
         fetchMovieData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [fetchURL]);
 
     const fetchMovieData = async () => {   //async - await 비동기 요청

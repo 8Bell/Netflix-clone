@@ -21,7 +21,7 @@ export default function Footer() {
       <div className='footer'>
        <div className='footer__inputs'>
         <input value={searchValue} onChange={handleChange} className='footer__input' type='text' placeholder='Search'/>
-        <img src="https://img.icons8.com/ios-glyphs/30/ffffff/search--v1.png" className='footer__inputIcon'/>
+        <img src="https://img.icons8.com/ios-glyphs/30/ffffff/search--v1.png" className='footer__inputIcon' alt=''/>
         </div>
       </div>
     <FooterContainer>
