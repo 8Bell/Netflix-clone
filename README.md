@@ -1,4 +1,4 @@
-# Netflix Clone v3.6
+# Netflix Clone v3.7
 
 <br>
 
