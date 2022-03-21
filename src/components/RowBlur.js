@@ -1,8 +1,8 @@
 import React from 'react';
-
 import './RowBlur.css';
 
 export default function RowBlur(isLogIn) {
+	console.log('islogin', isLogIn);
 	return (
 		<div>
 			{isLogIn && (

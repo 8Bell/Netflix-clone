@@ -7,7 +7,6 @@ import { Navigation, A11y, Mousewheel } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { useModalClose } from '../hooks/useModalClose';
-import RowBlur from './RowBlur';
 
 export default function Row({ title, id, fetchURL, isLargeRow, isBlur }) {
 	const [movies, setMovies] = useState([]);

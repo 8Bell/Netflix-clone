@@ -2,7 +2,6 @@ import React from 'react';
 import Banner from '../../components/Banner';
 import requests from '../../api/requests';
 import Row from '../../components/Row';
-import RowBlur from '../../components/RowBlur';
 
 export default function MainPage() {
 	return (
