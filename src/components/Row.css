@@ -43,7 +43,6 @@
     visibility: hidden;
   }
 
-  
   .row__posters {
     display: flex;
     overflow-y: hidden;
@@ -74,26 +73,6 @@
     opacity: 1;
   }
   
-  .row__arrow-left {
-    position: absolute;
-    top: 0;
-    left: 20px;
-    height: 100%;
-    width: 32px;
-    background: rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-  }
-  .row__arrow-right {
-    position: absolute;
-    top: 0;
-    right: 0px;
-    height: 100%;
-    width: 32px;
-    background: rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-  }
   .row__poster-title{
     text-align: center;
     margin-top: 3px;
@@ -112,6 +91,12 @@
     }
   }
   @media screen and (max-width: 768px) {
+    .row {
+      margin-left: 15px;
+    }
+    .category__title{
+      padding: 0 0 0 0.5rem;
+    }
     .row__poster {
       max-height: 100px;
     }

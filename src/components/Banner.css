@@ -19,7 +19,7 @@
   @media (max-width: 768px) {
     .banner__contents {
       width: min-content !important;
-      padding-left: 2.3rem;
+      padding-left: 1.5rem;
       margin-left: 0px !important;
     }
     .banner__description {

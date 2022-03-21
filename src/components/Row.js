@@ -6,16 +6,13 @@ import { Swiper, SwiperSlide} from "swiper/react";
 import { Navigation, A11y, Mousewheel  } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
-
-
+import { useModalClose } from '../hooks/useModalClose';
 
 export default function Row ({title, id, fetchURL, isLargeRow }) {
     const[movies, setMovies] = useState([]);
-    const [modalOpen, setModalOpen] = useState(false);
+    const [modalOpen, setModalOpen, clickRef] = useModalClose();
     const [movieSelected, setMovieSelected] = useState({});
     const w = Math.round(window.innerWidth/250)
-  
-    
     
     useEffect(() => {
         fetchMovieData();
@@ -32,10 +29,12 @@ export default function Row ({title, id, fetchURL, isLargeRow }) {
         setMovieSelected(movie);
         console.log(movieSelected);
     };
+
+
     
   return (
     <section className='row'>
-        <h2>{title}</h2>
+        <h2 className='category__title'>{title}</h2>
         <div className='slider'>
 
             <Swiper
@@ -73,7 +72,7 @@ export default function Row ({title, id, fetchURL, isLargeRow }) {
                        </Swiper >
                
         </div>
-        {modalOpen && ( <MovieModal {...movieSelected} setModalOpen={setModalOpen}/>)}
+        {modalOpen && ( <MovieModal {...movieSelected} setModalOpen={setModalOpen} clickRef={clickRef}/>)}
     </section>
   )
 }

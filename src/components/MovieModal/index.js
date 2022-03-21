@@ -1,4 +1,4 @@
-import React from 'react';
+// import { useEffect, useRef } from 'react';
 import './MovieModal.css';
 
 function MovieModal({
@@ -9,17 +9,23 @@ function MovieModal({
     release_date,
     first_air_date,
     vote_average,
+    clickRef,
     setModalOpen,
-}) {
+}) 
+{
+
   return (
     <div className='presentation' role='presentation'>
         <div className='wrapper-modal'>
-            <div 
+            {/* <div 
             className='modalBackground' 
             style={{ position: 'absolute', width: '100%', height:'100%'}}
             onClick={()=> setModalOpen(false)}
-            />
-            <div className='modal'>
+            /> */}
+            <div 
+            className='modal'
+            ref={clickRef}
+            >   
                 <span
                 onClick={()=> setModalOpen(false)}
                 className='modal-close'> ╳ </span>
