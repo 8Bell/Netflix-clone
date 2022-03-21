@@ -33,6 +33,7 @@ https://netfilx-clone.netlify.app <br>
 <br>
 
 ### Movie Modal 창 외부를 클릭 시 창이 닫히도록 구현했습니다.
+- Costom Hook 을 사용해 구현했습니다 (v3.7.0)
 <br>
 
 ### 메인화면에서 'More information' 버튼 클릭시에도 Movie Modal 창이 나오도록 구현했습니다.
