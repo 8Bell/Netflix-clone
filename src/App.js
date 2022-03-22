@@ -13,7 +13,7 @@ const Layout = ({ isLogIn, setIsLogIn }) => {
 		<div>
 			<Nav isLogIn={isLogIn} setIsLogIn={setIsLogIn} />
 			<Outlet />
-			<RowBlur isLogIn={isLogIn} />
+			{!isLogIn && <RowBlur />}
 			<Footer />
 		</div>
 	);

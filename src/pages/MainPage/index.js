@@ -3,7 +3,7 @@ import Banner from '../../components/Banner';
 import requests from '../../api/requests';
 import Row from '../../components/Row';
 
-export default function MainPage() {
+export default function MainPage(isLogIn) {
 	return (
 		<div>
 			<Banner fetchURL={requests.fetchTrending} />
@@ -13,6 +13,7 @@ export default function MainPage() {
 				id='NO'
 				fetchURL={requests.fetchNetflixOriginals}
 				isLargeRow
+				isLogIn={isLogIn}
 			/>
 			<Row title='TRENDING NOW' id='TN' fetchURL={requests.fetchTrending} />
 			<Row title='TOP RATED' id='TR' fetchURL={requests.fetchTopRated} />

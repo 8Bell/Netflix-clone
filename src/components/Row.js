@@ -8,7 +8,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { useModalClose } from '../hooks/useModalClose';
 
-export default function Row({ title, id, fetchURL, isLargeRow, isBlur }) {
+export default function Row({ title, id, fetchURL, isLargeRow, isBlur, isLogIn }) {
 	const [movies, setMovies] = useState([]);
 	const [modalOpen, setModalOpen, clickRef] = useModalClose();
 	const [movieSelected, setMovieSelected] = useState({});
@@ -32,7 +32,7 @@ export default function Row({ title, id, fetchURL, isLargeRow, isBlur }) {
 	};
 
 	return (
-		<section className={`row ${isBlur && 'rowBlur'}`}>
+		<section className={`row ${isBlur && !isLogIn && 'rowBlur'}`}>
 			<h2 className='category__title'>{title}</h2>
 			<div className='slider'>
 				<Swiper
