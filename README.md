@@ -6,6 +6,7 @@
 
 <br>
 https://netfilx-clone.netlify.app (v3.7.0)<br>
+- Lion Mission
 https://netfilx-clone-loginable.netlify.app (v.4.2.0)<br>
 - 로그인 기능 추가 중
 <br>
