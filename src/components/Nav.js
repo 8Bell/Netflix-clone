@@ -57,22 +57,24 @@ export default function Nav({ ssv, isLogIn, setIsLogIn }) {
 					onClick={Home}
 					href='/'
 				/>
-				<div className='nav__inputs'>
-					<div className='nav__searchbar'>
-						<input
-							value={searchValue}
-							onChange={handleChange}
-							className='nav__input'
-							type='text'
-							placeholder='Search'
-						/>
-						<img
-							src='https://img.icons8.com/ios-glyphs/30/ffffff/search--v1.png'
-							className='nav__inputIcon'
-							alt=''
-						/>
+				{isLogIn && (
+					<div className='nav__inputs'>
+						<div className='nav__searchbar'>
+							<input
+								value={searchValue}
+								onChange={handleChange}
+								className='nav__input'
+								type='text'
+								placeholder='Search'
+							/>
+							<img
+								src='https://img.icons8.com/ios-glyphs/30/ffffff/search--v1.png'
+								className='nav__inputIcon'
+								alt=''
+							/>
+						</div>
 					</div>
-				</div>
+				)}
 				{isLogIn === true ? (
 					<img
 						alt='User logged'
@@ -84,7 +86,7 @@ export default function Nav({ ssv, isLogIn, setIsLogIn }) {
 					<>
 						<div className='nav__logins'>
 							<p className={`nav__logins-t ${show && 'nav__black_logins-t'}`}>
-								무제한으로 즐기는 시리즈의 영화
+								무제한으로 즐기는 시리즈와 영화
 							</p>
 							<button className='nav__signup'>지금 가입하기</button>
 							<button

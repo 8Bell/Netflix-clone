@@ -48,9 +48,9 @@ export default function Row({ title, id, fetchURL, isLargeRow, isBlur, isLogIn }
 						key={id}
 						className='row__posters'
 						style={{
-							padding: '20px 0 50px 0',
-							'--swiper-navigation-color': '#ddd',
-							'--swiper-navigation-size': '30px',
+							padding: '10px 2em 3rem 2em',
+							'--swiper-navigation-color': '#e50914',
+							'--swiper-navigation-size': '1rem',
 						}}
 						modules={[Navigation, A11y, Mousewheel]}
 						spaceBetween={20}
@@ -59,8 +59,9 @@ export default function Row({ title, id, fetchURL, isLargeRow, isBlur, isLogIn }
 						loop={true}
 						//mousewheel={true}
 						navigation>
+						<div className='side_fadeout' />
 						{movies.map((movie) => (
-							<SwiperSlide key={movie.id}>
+							<SwiperSlide key={movie.id} className='row__posterBox'>
 								<div>
 									<img
 										className={`row__poster ${
