@@ -1,11 +1,11 @@
-# Netflix Clone v3.7
+# Netflix Clone v4.2.1
 
 <br>
 
 ### 직접 사용해보세요 ⇩
 
 <br>
-https://netfilx-clone.netlify.app <br>
+https://netfilx-clone-loginable.netlify.app <br>
 
 <br>
 <br>
@@ -24,6 +24,8 @@ https://netfilx-clone.netlify.app <br>
 <br>
 
 # 📢
+
+### Login UI 를 구현했습니다.(v4.2.0)
 
 ### swipe 를 사용하여 slide를 구현했습니다.
 
