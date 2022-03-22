@@ -5,20 +5,20 @@
 ### 직접 사용해보세요 ⇩ 
 
 <br>
-https://netfilx-clone.netlify.app <br>
-
+https://netfilx-clone.netlify.app (v3.7.0)<br>
+https://netfilx-clone-loginable.netlify.app (v.4.2.0)<br>
+- 로그인 기능 추가 중
 <br>
 <br>
 
 # Mobile
-<img width="592" alt="netflix-clone-m" src="https://user-images.githubusercontent.com/53814275/158690334-7b63120b-e5be-4b95-9997-665580c7d3c9.png">
+<img width="352" alt="mobile" src="https://user-images.githubusercontent.com/53814275/159554976-28e9d572-9aa2-4b2f-b483-a2a6c94b1425.png">
+
 
 <br>
 
 # PC
-<img width="1423" alt="netflix clone-pc" src="https://user-images.githubusercontent.com/53814275/158690367-c58db5ca-def8-4801-acff-b96ecade44ee.png">
-
-
+<img width="1219" alt="pc" src="https://user-images.githubusercontent.com/53814275/159555043-5f57e1a9-90a4-45f9-86e9-395a07ea27da.png">
 
 
 <br>
