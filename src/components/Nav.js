@@ -3,10 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Nav.css';
 
-export default function Nav({ ssv, isLogIN, setIsLogIn }) {
+export default function Nav({ ssv, isLogIn, setIsLogIn }) {
 	const [show, setShow] = useState(false);
 	const [searchValue, setSearchValue] = useState('');
-
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -34,6 +33,14 @@ export default function Nav({ ssv, isLogIN, setIsLogIn }) {
 		ssv('');
 		window.location.reload();
 	};
+
+	const swithLogIn = () => {
+		console.log('nav login', isLogIn);
+		setIsLogIn(!isLogIn);
+	};
+
+	console.log('login', isLogIn);
+	console.log('set login', setIsLogIn);
 
 	return (
 		<nav className={`nav ${show && 'nav__black'} `}>
@@ -65,12 +72,24 @@ export default function Nav({ ssv, isLogIN, setIsLogIn }) {
 					/>
 				</div>
 			</div>
-
-			<img
-				alt='User logged'
-				src='https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png?20201013161117'
-				className='nav__avatar'
-			/>
+			{isLogIn === true ? (
+				<img
+					alt='User logged'
+					src='https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png?20201013161117'
+					className='nav__avatar'
+					onClick={swithLogIn}
+				/>
+			) : (
+				<>
+					<div className='nav__logins'>
+						<p className='nav__logins-t'>무제한으로 즐기는 시리즈의 영화</p>
+						<button className='nav__signup'>지금 가입하기</button>
+						<button className='nav__signin' onClick={swithLogIn}>
+							로그인
+						</button>
+					</div>
+				</>
+			)}
 		</nav>
 	);
 }

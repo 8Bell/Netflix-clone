@@ -20,7 +20,7 @@ const Layout = ({ isLogIn, setIsLogIn }) => {
 };
 
 function App() {
-	const [isLogIn, setIsLogIn] = useState(false);
+	const [isLogIn, setIsLogIn] = useState(true);
 	return (
 		<div className='App'>
 			<Routes>

@@ -93,3 +93,57 @@
 	z-index: 4;
 	pointer-events: none;
 }
+
+.nav__logins {
+	position: fixed;
+	right: 40px;
+	object-fit: contain;
+}
+
+.nav__logins-t {
+	position: relative;
+	display: inline-flex;
+	font-size: 0.8em;
+	color: white;
+	margin: 0 1em;
+}
+
+.nav__signup {
+	display: inline-flexbox;
+	flex-direction: row;
+	justify-content: start;
+	align-items: center;
+	cursor: pointer;
+	outline: none;
+	border: none;
+	font-size: 1rem;
+	font-weight: 700;
+	border-radius: 0.3vw;
+	padding: 0.5rem 1.3rem 0.4rem 1rem;
+	margin: 1rem 1rem 0 0;
+	background-color: #e50914d7;
+	color: rgba(255, 255, 255, 0.9);
+}
+.nav__signup:hover {
+	background-color: #e50914;
+}
+
+.nav__signin {
+	display: inline-flex;
+	flex-direction: row;
+	justify-content: start;
+	align-items: center;
+	cursor: pointer;
+	outline: none;
+	border: 1px solid #888;
+	font-size: 1rem;
+	font-weight: 700;
+	border-radius: 0.3vw;
+	padding: 0.5rem 1.3rem 0.4rem 1rem;
+	margin: 1rem 1rem 0 0;
+	background-color: transparent;
+	color: rgba(255, 255, 255, 0.9);
+}
+.nav__signin:hover {
+	background-color: rgba(255, 255, 255, 0.1);
+}
