@@ -6,9 +6,9 @@
 
 .footer__inputs {
 	width: 100%;
-	/* background-color: aqua; */
 	position: relative;
 	padding: 5% 0% 12% 0%;
+	margin-top: 2em;
 	transform: translate(-50, -50);
 }
 .footer__input {
@@ -18,9 +18,9 @@
 	left: 22%;
 	background-color: rgba(0, 0, 0, 0.5);
 	border-radius: 5px;
+	border: 1px solid rgba(255, 255, 255, 0.4);
 	color: white;
 	padding: 7px;
-	border: none;
 	z-index: 3;
 }
 .footer__input::placeholder {

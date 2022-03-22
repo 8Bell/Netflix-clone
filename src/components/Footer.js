@@ -85,12 +85,18 @@ const FooterLinkContainer = styled.div`
 
 	@media (max-width: 768px) {
 		width: 100%;
+		margin-left: 10px;
+		align-contents: center;
 	}
 `;
 
 const FooterLinkTitle = styled.h1`
 	color: gray;
 	font-size: 18px;
+
+	@media (max-width: 768px) {
+		font-size: 16px;
+	}
 `;
 
 const FooterLinkContent = styled.div`
@@ -99,7 +105,7 @@ const FooterLinkContent = styled.div`
 	flex-wrap: wrap;
 	margin: 35px 0 40px 0;
 
-	@media (max-width: 768) {
+	@media (max-width: 768px) {
 		margin-top: 26;
 	}
 `;
@@ -118,6 +124,7 @@ const FooterLink = styled.a`
 	@media (max-width: 768px) {
 		margin-bottom: 16px;
 		height: 20px;
+		font-size: 14px;
 	}
 `;
 

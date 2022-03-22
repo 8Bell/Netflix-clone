@@ -83,9 +83,13 @@ export default function Nav({ ssv, isLogIn, setIsLogIn }) {
 				) : (
 					<>
 						<div className='nav__logins'>
-							<p className='nav__logins-t'>무제한으로 즐기는 시리즈의 영화</p>
+							<p className={`nav__logins-t ${show && 'nav__black_logins-t'}`}>
+								무제한으로 즐기는 시리즈의 영화
+							</p>
 							<button className='nav__signup'>지금 가입하기</button>
-							<button className='nav__signin' onClick={swithLogIn}>
+							<button
+								className={`nav__signin ${show && 'nav__black_signin'}`}
+								onClick={swithLogIn}>
 								로그인
 							</button>
 						</div>

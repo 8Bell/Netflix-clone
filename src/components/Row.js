@@ -12,7 +12,7 @@ export default function Row({ title, id, fetchURL, isLargeRow, isBlur, isLogIn }
 	const [movies, setMovies] = useState([]);
 	const [modalOpen, setModalOpen, clickRef] = useModalClose();
 	const [movieSelected, setMovieSelected] = useState({});
-	const w = Math.round(window.innerWidth / 300);
+	const w = Math.round(window.innerWidth / 300) + 1;
 
 	const [checkLogIn, setCheckLogIn] = useState(isLogIn);
 	useEffect(() => {
