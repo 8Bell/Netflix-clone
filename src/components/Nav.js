@@ -43,53 +43,55 @@ export default function Nav({ ssv, isLogIn, setIsLogIn }) {
 	console.log('set login', setIsLogIn);
 
 	return (
-		<nav className={`nav ${show && 'nav__black'} `}>
-			{/* = {`${setShow ? 'nav__black' : 'nav'}`} */}
-			<img
-				alt='Netflix logo'
-				src={
-					window.innerWidth < 768
-						? 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Netflix_2015_N_logo.svg/185px-Netflix_2015_N_logo.svg.png'
-						: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/170px-Netflix_2015_logo.svg.png'
-				}
-				className='nav__logo'
-				onClick={Home}
-				href='/'
-			/>
-			<div className='nav__inputs'>
-				<div className='nav__searchbar'>
-					<input
-						value={searchValue}
-						onChange={handleChange}
-						className='nav__input'
-						type='text'
-						placeholder='Search'
-					/>
-					<img
-						src='https://img.icons8.com/ios-glyphs/30/ffffff/search--v1.png'
-						className='nav__inputIcon'
-						alt=''
-					/>
-				</div>
-			</div>
-			{isLogIn === true ? (
+		<>
+			<nav className={`nav ${show && 'nav__black'} `}>
+				{/* = {`${setShow ? 'nav__black' : 'nav'}`} */}
 				<img
-					alt='User logged'
-					src='https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png?20201013161117'
-					className='nav__avatar'
-					onClick={swithLogIn}
+					alt='Netflix logo'
+					src={
+						window.innerWidth < 768
+							? 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Netflix_2015_N_logo.svg/185px-Netflix_2015_N_logo.svg.png'
+							: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/170px-Netflix_2015_logo.svg.png'
+					}
+					className='nav__logo'
+					onClick={Home}
+					href='/'
 				/>
-			) : (
-				<>
-					<div className='nav__logins'>
-						<p className='nav__logins-t'>무제한으로 즐기는 시리즈의 영화</p>
-						<button className='nav__signup'>지금 가입하기</button>
-						<button className='nav__signin' onClick={swithLogIn}>
-							로그인
-						</button>
+				<div className='nav__inputs'>
+					<div className='nav__searchbar'>
+						<input
+							value={searchValue}
+							onChange={handleChange}
+							className='nav__input'
+							type='text'
+							placeholder='Search'
+						/>
+						<img
+							src='https://img.icons8.com/ios-glyphs/30/ffffff/search--v1.png'
+							className='nav__inputIcon'
+							alt=''
+						/>
 					</div>
-				</>
-			)}
-		</nav>
+				</div>
+				{isLogIn === true ? (
+					<img
+						alt='User logged'
+						src='https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png?20201013161117'
+						className='nav__avatar'
+						onClick={swithLogIn}
+					/>
+				) : (
+					<>
+						<div className='nav__logins'>
+							<p className='nav__logins-t'>무제한으로 즐기는 시리즈의 영화</p>
+							<button className='nav__signup'>지금 가입하기</button>
+							<button className='nav__signin' onClick={swithLogIn}>
+								로그인
+							</button>
+						</div>
+					</>
+				)}
+			</nav>
+		</>
 	);
 }

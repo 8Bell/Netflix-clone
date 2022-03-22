@@ -14,10 +14,15 @@ export default function Row({ title, id, fetchURL, isLargeRow, isBlur, isLogIn }
 	const [movieSelected, setMovieSelected] = useState({});
 	const w = Math.round(window.innerWidth / 300);
 
+	const [checkLogIn, setCheckLogIn] = useState(isLogIn);
+	useEffect(() => {
+		setCheckLogIn((prev) => !prev);
+	}, [isLogIn]);
+
 	useEffect(() => {
 		fetchMovieData();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [fetchURL]);
+	}, [fetchURL, isLogIn]);
 
 	const fetchMovieData = async () => {
 		//async - await 비동기 요청
@@ -35,7 +40,7 @@ export default function Row({ title, id, fetchURL, isLargeRow, isBlur, isLogIn }
 
 	return (
 		<>
-			<section className={`row ${isBlur && !isLogIn && 'rowBlur'}`}>
+			<section className={`row ${isBlur && !checkLogIn && 'rowBlur'}`}>
 				<h2 className='category__title'>{title}</h2>
 				<div className='slider'>
 					<Swiper

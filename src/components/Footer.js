@@ -15,7 +15,6 @@ export default function Footer() {
 
 	return (
 		<>
-			{/* <Nav ssv={setSearchValue}  /> */}
 			<div className='footer'>
 				<div className='footer__inputs'>
 					<input
