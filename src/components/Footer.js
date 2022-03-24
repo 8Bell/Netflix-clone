@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import './Footer.css';
 import Nav from './Nav';
 
-export default function Footer() {
+export default function Footer({ isLogIn }) {
 	const [searchValue, setSearchValue] = useState('');
 	const navigate = useNavigate();
 
@@ -15,22 +15,24 @@ export default function Footer() {
 
 	return (
 		<>
-			<div className='footer'>
-				<div className='footer__inputs'>
-					<input
-						value={searchValue}
-						onChange={handleChange}
-						className='footer__input'
-						type='text'
-						placeholder='Search'
-					/>
-					<img
-						src='https://img.icons8.com/ios-glyphs/30/ffffff/search--v1.png'
-						className='footer__inputIcon'
-						alt=''
-					/>
+			{isLogIn && (
+				<div className='footer'>
+					<div className='footer__inputs'>
+						<input
+							value={searchValue}
+							onChange={handleChange}
+							className='footer__input'
+							type='text'
+							placeholder='Search'
+						/>
+						<img
+							src='https://img.icons8.com/ios-glyphs/30/ffffff/search--v1.png'
+							className='footer__inputIcon'
+							alt=''
+						/>
+					</div>
 				</div>
-			</div>
+			)}
 			<FooterContainer>
 				<FooterContent>
 					<FooterLinkContainer>
@@ -71,7 +73,7 @@ padding: 140px 0 50px 0;
 // border-top: 1px solid rgb(25,25,25);
 width: 100%
 position: relative;
-z-imdex: 100;
+z-index: 100;
 
 @media (max-width: 769px) {
     padding: 20px 20px;

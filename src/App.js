@@ -7,6 +7,7 @@ import MainPage from './pages/MainPage';
 import SearchPage from './pages/SearchPage';
 import RowBlur from './components/RowBlur';
 import { useState } from 'react';
+import AuthPage from './pages/AuthPage/Auth';
 
 const Layout = ({ isLogIn, setIsLogIn }) => {
 	return (
@@ -14,7 +15,7 @@ const Layout = ({ isLogIn, setIsLogIn }) => {
 			<Nav isLogIn={isLogIn} setIsLogIn={setIsLogIn} />
 			<Outlet />
 			{!isLogIn && <RowBlur />}
-			<Footer />
+			<Footer isLogIn={isLogIn} />
 		</div>
 	);
 };
@@ -29,6 +30,14 @@ function App() {
 					<Route path=':movieId' element={<DetailPage />} />
 					<Route path='search' element={<SearchPage />} />
 				</Route>
+				<Route
+					path='/auth'
+					element={
+						<>
+							<AuthPage />
+						</>
+					}
+				/>
 			</Routes>
 		</div>
 	);
