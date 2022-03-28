@@ -12,7 +12,7 @@ export default function Row({ title, id, fetchURL, isLargeRow, isBlur, isLogIn }
 	const [movies, setMovies] = useState([]);
 	const [modalOpen, setModalOpen, clickRef] = useModalClose();
 	const [movieSelected, setMovieSelected] = useState({});
-	const w = Math.round(window.innerWidth / 300) + 1;
+	//const w = Math.round(window.innerWidth / 300) + 1;
 
 	const [checkLogIn, setCheckLogIn] = useState(isLogIn);
 	useEffect(() => {
@@ -54,8 +54,26 @@ export default function Row({ title, id, fetchURL, isLargeRow, isBlur, isLogIn }
 						}}
 						modules={[Navigation, A11y, Mousewheel]}
 						spaceBetween={20}
-						slidesPerView={w} // 창 크기에 따라 표시되는 영화의 개수 조절
-						slidesPerGroup={Math.round(w / 2)} // 표시되는 영화 개수의 절반만 슬라이드
+						//slidesPerView={w} // 창 크기에 따라 표시되는 영화의 개수 조절
+						//slidesPerGroup={Math.round(w / 2)} // 표시되는 영화 개수의 절반만 슬라이드
+						breakpoints={{
+							1378: {
+								slidesPerView:5,
+								slidesPerGroup:5,
+							},
+							998: {
+								slidesPerView:4,
+								slidesPerGroup:4,
+							},
+							625: {
+								slidesPerView:3,
+								slidesPerGroup:3,
+							},
+							0: {
+								slidesPerView:3,
+								slidesPerGroup:3,
+							},
+						}}
 						loop={true}
 						//mousewheel={true}
 						navigation>

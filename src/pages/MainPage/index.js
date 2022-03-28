@@ -24,7 +24,7 @@ export default function MainPage(isLogIn) {
 				isLogIn={isLogIn}
 			/>
 			<Row
-				title='Comedy Movies'
+				title='Comedy Movies' 
 				id='CM'
 				fetchURL={requests.fetchComedyMovies}
 				isLogIn={isLogIn}
