@@ -6,8 +6,9 @@ import DetailPage from './pages/DetailPage';
 import MainPage from './pages/MainPage';
 import SearchPage from './pages/SearchPage';
 import RowBlur from './components/RowBlur';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AuthPage from './pages/AuthPage/Auth';
+import { authService } from 'fbase';
 
 const Layout = ({ isLogIn, setIsLogIn }) => {
 	return (
@@ -21,11 +22,27 @@ const Layout = ({ isLogIn, setIsLogIn }) => {
 };
 
 function App() {
-	const [isLogIn, setIsLogIn] = useState(false);
+	const [init, setInit] = useState(false);
+
+	const [isLogIn, setIsLogIn] = useState(authService.currentUser);
+
+	useEffect(() => {
+		authService.onAuthStateChanged((user) => {
+			if (user) {
+				setIsLogIn(true);
+			} else {
+				setIsLogIn(false);
+			}
+			setInit(true);
+		});
+	}, []);
+
 	return (
 		<div className='App'>
 			<Routes>
-				<Route path='/' element={<Layout isLogIn={isLogIn} setIsLogIn={setIsLogIn} />}>
+				<Route
+					path='/'
+					element={<Layout isLogIn={isLogIn} setIsLogIn={setIsLogIn} />}>
 					<Route index element={<MainPage isLogIn={isLogIn} />} />
 					<Route path=':movieId' element={<DetailPage />} />
 					<Route path='search' element={<SearchPage />} />
@@ -34,7 +51,7 @@ function App() {
 					path='/auth'
 					element={
 						<>
-							<AuthPage />
+							<AuthPage setIsLogIn={setIsLogIn} />
 						</>
 					}
 				/>

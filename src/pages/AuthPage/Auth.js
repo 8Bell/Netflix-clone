@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import './Auth.css';
 import styled from 'styled-components';
+import { authService } from 'fbase';
+import { useNavigate } from 'react-router-dom';
 
-export default function AuthPage() {
+export default function AuthPage(setIsLogIn) {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const [newAccount, setNewAccout] = useState(false);
+	const [error, setError] = useState('');
+	const navigate = useNavigate();
 
 	const onChange = (event) => {
 		const {
@@ -16,6 +21,30 @@ export default function AuthPage() {
 			setPassword(value);
 		}
 	};
+	const Home = () => {
+		navigate('/');
+		window.location.reload();
+	};
+
+	const onSubmit = async (e) => {
+		e.preventDefault();
+
+		try {
+			let data;
+			if (newAccount) {
+				data = await authService.createUserWithEmailAndPassword(email, password);
+			} else {
+				data = await authService.signInWithEmailAndPassword(email, password);
+			}
+			console.log(data);
+			navigate('/');
+			window.location.reload();
+			setIsLogIn(true);
+		} catch (error) {
+			setError(error.message);
+		}
+	};
+
 	return (
 		<div>
 			<div className='auth__wrapper'>
@@ -28,13 +57,14 @@ export default function AuthPage() {
 				<div className='auth__navbar'>
 					<img
 						className='auth__navlogo'
-						src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/170px-Netflix_2015_logo.svg.png'></img>
+						src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/170px-Netflix_2015_logo.svg.png'
+						onClick={Home}></img>
 				</div>
 				<div className='auth__body'>
 					<div className='auth__forms'>
 						<div className='auth__form'>
 							<h1 className='auth__form-t'>로그인</h1>
-							<form>
+							<form onSubmit={onSubmit}>
 								<input
 									name='email'
 									type='text'
@@ -44,6 +74,7 @@ export default function AuthPage() {
 									onChange={onChange}
 									className='authInput'
 								/>
+								{error}
 								<input
 									name='password'
 									type='password'
@@ -53,8 +84,14 @@ export default function AuthPage() {
 									onChange={onChange}
 									className='authInput'
 								/>
-								<input type='submit' value='로그인' className='authSubmit'></input>
+								<input
+									type='submit'
+									value={newAccount ? '계정 만들기' : '로그인'}
+									className='authSubmit'></input>
 							</form>
+							{/* <div>
+								<button>google로 로그인</button>
+							</div> */}
 						</div>
 					</div>
 				</div>
@@ -87,7 +124,9 @@ export default function AuthPage() {
 								<FooterLink href='https://help.netflix.com/ko'>
 									회사 정보
 								</FooterLink>
-								<FooterLink href='https://fast.com'>속도 테스트</FooterLink>
+								<FooterLink href='https://fast.com'>
+									속도 테스트
+								</FooterLink>
 								<FooterLink href='https://help.netflix.com/ko'>
 									쿠키 설정
 								</FooterLink>
@@ -99,7 +138,9 @@ export default function AuthPage() {
 								</FooterLink>
 							</FooterLinkContent>
 							<FooterDescContainer>
-								<FooterDescRights>Netflix 2022 Rights Resverd.</FooterDescRights>
+								<FooterDescRights>
+									Netflix 2022 Rights Resverd.
+								</FooterDescRights>
 							</FooterDescContainer>
 						</FooterLinkContainer>
 					</FooterContent>

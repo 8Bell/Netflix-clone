@@ -1,4 +1,5 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
+import { authService } from 'fbase';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Nav.css';
@@ -22,6 +23,10 @@ export default function Nav({ ssv, isLogIn, setIsLogIn }) {
 		};
 	}, []);
 
+	const logOutClick = () => {
+		authService.signOut();
+	};
+
 	const handleChange = (e) => {
 		setSearchValue(e.target.value);
 		navigate(`/search?q=${e.target.value}`);
@@ -34,13 +39,18 @@ export default function Nav({ ssv, isLogIn, setIsLogIn }) {
 		window.location.reload();
 	};
 
+	const Auth = () => {
+		navigate('/auth');
+		window.location.reload();
+	};
+
 	const swithLogIn = () => {
 		console.log('nav login', isLogIn);
 		setIsLogIn(!isLogIn);
 	};
 
-	console.log('login', isLogIn);
-	console.log('set login', setIsLogIn);
+	// console.log('login', isLogIn);
+	// console.log('set login', setIsLogIn);
 
 	return (
 		<>
@@ -80,18 +90,24 @@ export default function Nav({ ssv, isLogIn, setIsLogIn }) {
 						alt='User logged'
 						src='https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png?20201013161117'
 						className='nav__avatar'
-						onClick={swithLogIn}
+						onClick={logOutClick}
 					/>
 				) : (
 					<>
 						<div className='nav__logins'>
-							<p className={`nav__logins-t ${show && 'nav__black_logins-t'}`}>
+							<p
+								className={`nav__logins-t ${
+									show && 'nav__black_logins-t'
+								}`}>
 								무제한으로 즐기는 시리즈와 영화
 							</p>
 							<button className='nav__signup'>지금 가입하기</button>
 							<button
-								className={`nav__signin ${show && 'nav__black_signin'}`}
-								onClick={swithLogIn}>
+								className={`nav__signin ${
+									show && 'nav__black_signin'
+								}`}
+								onClick={Auth}
+								href='/auth'>
 								로그인
 							</button>
 						</div>

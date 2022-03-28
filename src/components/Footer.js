@@ -56,7 +56,7 @@ export default function Footer({ isLogIn }) {
 							<FooterLink href='https://help.netflix.com/ko'>문의 하기</FooterLink>
 						</FooterLinkContent>
 						<FooterDescContainer>
-							<FooterDescRights>Netflix 2022 Rights Resverd.</FooterDescRights>
+							<FooterDescRights>Netflix {new Date().getFullYear()} Rights Resverd.</FooterDescRights>
 						</FooterDescContainer>
 					</FooterLinkContainer>
 				</FooterContent>
