@@ -58,11 +58,6 @@ function MovieModal({
 	return (
 		<div className='presentation' role='presentation'>
 			<div className='wrapper-modal'>
-				{/* <div 
-            className='modalBackground' 
-            style={{ position: 'absolute', width: '100%', height:'100%'}}
-            onClick={()=> setModalOpen(false)}
-            /> // 커스텀 훅스 아닌 js내 코드*/}
 				<div className='modal' ref={clickRef}>
 					<span onClick={() => setModalOpen(false)} className='modal-close'>
 						{' '}
