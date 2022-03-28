@@ -107,6 +107,7 @@ export default function Row({ title, id, fetchURL, isLargeRow, isBlur, isLogIn }
 						{...movieSelected}
 						setModalOpen={setModalOpen}
 						clickRef={clickRef}
+						isLogIn={isLogIn}
 					/>
 				)}
 			</section>

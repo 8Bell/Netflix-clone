@@ -9,13 +9,9 @@
 		) !important;
 	}
 	.nav__black {
-		background-color: rgba(0, 0, 0, 0.6) !important;
+		background-color: rgba(0, 0, 0, 0.9) !important;
 	}
 
-	.nav__logo {
-		width: 22px !important;
-		left: 12px !important ;
-	}
 	.nav__avatar {
 		right: 12px !important ;
 	}
@@ -24,6 +20,12 @@
 	}
 	.nav__inputs {
 		display: none;
+	}
+	.nav__logo_m {
+		display: flex !important;
+	}
+	.nav__logo_pc {
+		display: none !important;
 	}
 }
 
@@ -55,25 +57,30 @@
 	transition: all 0.5s;
 }
 
-.nav__logo {
+.nav__logo_pc {
 	position: fixed;
 	opacity: 100%;
-	left: 40px;
+	left: 3vw;
 	width: 100px;
 	object-fit: contain;
+	display: flex;
 }
 
-.nav__avatar {
+.nav__logo_m {
 	position: fixed;
-	right: 40px;
-	width: 30px;
+	opacity: 100%;
+	left: 1vw;
+	width: 22px;
+	left: 12px;
 	object-fit: contain;
+	display: none;
 }
+
 .nav__inputs {
 	position: fixed;
 	width: 100%;
 	height: 10px;
-	top: 1.5%;
+	top: 14px;
 	transform: translate(-50, -50);
 }
 .nav__searchbar {
@@ -112,9 +119,17 @@
 
 .nav__logins {
 	position: fixed;
-	right: 40px;
+	right: 4vw;
+	top: 9px;
 	object-fit: contain;
-
+	transition-timing-function: ease-in;
+	transition: all 0.5s;
+}
+.nav__logins_done {
+	position: fixed;
+	right: 4vw;
+	top: 6px;
+	object-fit: contain;
 	transition-timing-function: ease-in;
 	transition: all 0.5s;
 }
@@ -144,6 +159,32 @@
 
 	transition-timing-function: ease-out;
 	transition: all 1.5s;
+}
+
+.nav__userName {
+	position: relative;
+	display: inline-flex;
+	font-size: 0.9em;
+	font-weight: 500;
+	color: white;
+	opacity: 100;
+	margin: 0 20px 0 0;
+	transform: translate(0%, 0%);
+	transition-timing-function: ease-out;
+	transition: all 1.5s;
+}
+
+.nav__avatar {
+	display: inline-flexbox;
+	flex-direction: row;
+	justify-content: start;
+	align-items: center;
+	cursor: pointer;
+	outline: none;
+	border: none;
+	margin: 0 1px 0 0;
+	width: 30px;
+	transform: translate(-40%, 30%);
 }
 
 .nav__signup {

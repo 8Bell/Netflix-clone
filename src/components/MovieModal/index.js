@@ -1,4 +1,5 @@
-// import { useEffect, useRef } from 'react';
+import { dbService } from 'fbase';
+import { useState } from 'react';
 import './MovieModal.css';
 
 function MovieModal({
@@ -11,7 +12,21 @@ function MovieModal({
 	vote_average,
 	clickRef,
 	setModalOpen,
+	isLogIn,
 }) {
+	const [comment, setComment] = useState('');
+	const onChange = (e) => {
+		setComment(e.target.value);
+	};
+	const onSubmit = (e) => {
+		e.preventDefault();
+		dbService.collection('netflix').add({
+			comment,
+			createdAt: Date.now(),
+		});
+		setComment('');
+	};
+
 	return (
 		<div className='presentation' role='presentation'>
 			<div className='wrapper-modal'>
@@ -40,6 +55,21 @@ function MovieModal({
 						<h2 className='modal__title'>{title ? title : name}</h2>
 						<p className='modal__overview'>평점: {vote_average}</p>
 						<p className='modal__overview'>{overview}</p>
+						<div></div>
+						{isLogIn.isLogIn && (
+							<div>
+								<form onSubmit={onSubmit}>
+									<input
+										type='text'
+										placeholder='감상평을 남겨주세요.'
+										maxLength={40}
+										value={comment}
+										onChange={onChange}></input>
+
+									<input type='submit' value='남기기'></input>
+								</form>
+							</div>
+						)}
 					</div>
 				</div>
 			</div>

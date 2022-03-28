@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Nav.css';
 
-export default function Nav({ ssv, isLogIn, setIsLogIn }) {
+export default function Nav({ isLogIn, newAccount, setNewAccount }) {
 	const [show, setShow] = useState(false);
 	const [searchValue, setSearchValue] = useState('');
 	const navigate = useNavigate();
@@ -35,18 +35,21 @@ export default function Nav({ ssv, isLogIn, setIsLogIn }) {
 	const Home = () => {
 		navigate('/');
 		setSearchValue('');
-		ssv('');
+		// ssv('');
 		window.location.reload();
 	};
 
-	const Auth = () => {
+	const Auth = (e) => {
+		if (e.target.name === 'signin') {
+			console.log('로그인버튼');
+			setNewAccount(false);
+		} else if (e.target.name === 'signup') {
+			console.log('가입버튼');
+			setNewAccount(true);
+		}
 		navigate('/auth');
-		window.location.reload();
-	};
-
-	const swithLogIn = () => {
-		console.log('nav login', isLogIn);
-		setIsLogIn(!isLogIn);
+		console.log(newAccount, setNewAccount);
+		// window.location.reload();
 	};
 
 	// console.log('login', isLogIn);
@@ -58,12 +61,15 @@ export default function Nav({ ssv, isLogIn, setIsLogIn }) {
 				{/* = {`${setShow ? 'nav__black' : 'nav'}`} */}
 				<img
 					alt='Netflix logo'
-					src={
-						window.innerWidth < 768
-							? 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Netflix_2015_N_logo.svg/185px-Netflix_2015_N_logo.svg.png'
-							: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/170px-Netflix_2015_logo.svg.png'
-					}
-					className='nav__logo'
+					src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Netflix_2015_N_logo.svg/185px-Netflix_2015_N_logo.svg.png'
+					className='nav__logo_m'
+					onClick={Home}
+					href='/'
+				/>
+				<img
+					alt='Netflix logo'
+					src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/170px-Netflix_2015_logo.svg.png'
+					className='nav__logo_pc'
 					onClick={Home}
 					href='/'
 				/>
@@ -86,12 +92,24 @@ export default function Nav({ ssv, isLogIn, setIsLogIn }) {
 					</div>
 				)}
 				{isLogIn === true ? (
-					<img
-						alt='User logged'
-						src='https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png?20201013161117'
-						className='nav__avatar'
-						onClick={logOutClick}
-					/>
+					<div className='nav__logins_done'>
+						<p className='nav__userName'>
+							{authService.currentUser.displayName ||
+								authService.currentUser.email}
+							님
+						</p>
+						<img
+							alt='User logged'
+							src={
+								authService.currentUser.photoURL ||
+								'https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png?20201013161117'
+							}
+							className='nav__avatar'
+						/>
+						<button className='nav__signin' onClick={logOutClick}>
+							로그아웃
+						</button>
+					</div>
 				) : (
 					<>
 						<div className='nav__logins'>
@@ -101,13 +119,20 @@ export default function Nav({ ssv, isLogIn, setIsLogIn }) {
 								}`}>
 								무제한으로 즐기는 시리즈와 영화
 							</p>
-							<button className='nav__signup'>지금 가입하기</button>
+							<button
+								className='nav__signup'
+								onClick={Auth}
+								href='/auth'
+								name='signup'>
+								지금 가입하기
+							</button>
 							<button
 								className={`nav__signin ${
 									show && 'nav__black_signin'
 								}`}
 								onClick={Auth}
-								href='/auth'>
+								href='/auth'
+								name='signin'>
 								로그인
 							</button>
 						</div>

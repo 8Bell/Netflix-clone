@@ -1,6 +1,6 @@
 .auth__wrapper {
 	color: #fff;
-	min-height: 100%;
+	height: 100%;
 	margin: 0;
 	padding: 0;
 	position: relative;
@@ -9,13 +9,10 @@
 }
 
 .auth__wrapper_bg {
-	position: absolute;
 	background-color: rgb(36, 36, 36);
 	color: #fff;
 	background-size: cover;
-	display: block;
-	height: 100%;
-	min-height: 100vh;
+
 	overflow: hidden;
 	position: absolute;
 	width: 100%;
@@ -24,8 +21,6 @@
 }
 
 .auth__wrapper_img {
-	min-height: 100%;
-	min-width: 100%;
 	border: 0;
 	-webkit-font-smoothing: antialiased;
 }
@@ -49,7 +44,7 @@
 .auth__body {
 	position: relative;
 	margin: 0 auto -236px;
-	min-height: 100vh;
+	height: 110vh;
 	background-color: transparent;
 	max-width: 450px;
 	margin: 0 auto;
@@ -58,14 +53,14 @@
 }
 
 .auth__forms {
-	min-height: 660px;
+	min-height: 550px;
 	padding: 60px 68px 40px;
 	background-color: rgba(0, 0, 0, 0.75);
 	border-radius: 4px;
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
-	margin: 0;
+	margin: 20px 0 0 0;
 	padding: 20px 0 30px;
 	width: 100%;
 	display: block;
@@ -73,7 +68,6 @@
 
 .auth__form {
 	padding: 60px 68px 40px;
-	margin-bottom: 90px;
 }
 
 .auth__form h1 {
@@ -101,6 +95,11 @@
 	font-size: 1.2em;
 }
 
+.errorMessage {
+	font-size: 0.9em;
+	color: #e50914;
+}
+
 .authSubmit {
 	display: inline-block;
 	border-radius: 5px;
@@ -115,4 +114,16 @@
 	min-height: 37px;
 	border: none;
 	color: #fff;
+}
+
+.AuthFooterContainer {
+	/* transform: translate(0, -70%); */
+	bottom: 0;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	padding: 80px 0 50px 0;
+	width: 100%;
+	z-index: 10;
+	background-color: rgba(0, 0, 0, 0.7);
 }

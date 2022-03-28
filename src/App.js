@@ -10,10 +10,15 @@ import { useEffect, useState } from 'react';
 import AuthPage from './pages/AuthPage/Auth';
 import { authService } from 'fbase';
 
-const Layout = ({ isLogIn, setIsLogIn }) => {
+const Layout = ({ isLogIn, setIsLogIn, newAccount, setNewAccount }) => {
 	return (
 		<div>
-			<Nav isLogIn={isLogIn} setIsLogIn={setIsLogIn} />
+			<Nav
+				isLogIn={isLogIn}
+				setIsLogIn={setIsLogIn}
+				newAccount={newAccount}
+				setNewAccount={setNewAccount}
+			/>
 			<Outlet />
 			{!isLogIn && <RowBlur />}
 			<Footer isLogIn={isLogIn} />
@@ -23,9 +28,10 @@ const Layout = ({ isLogIn, setIsLogIn }) => {
 
 function App() {
 	const [init, setInit] = useState(false);
+	const [newAccount, setNewAccount] = useState(true);
 
 	const [isLogIn, setIsLogIn] = useState(authService.currentUser);
-
+	console.log('authService.currentUser', authService.currentUser);
 	useEffect(() => {
 		authService.onAuthStateChanged((user) => {
 			if (user) {
@@ -42,7 +48,14 @@ function App() {
 			<Routes>
 				<Route
 					path='/'
-					element={<Layout isLogIn={isLogIn} setIsLogIn={setIsLogIn} />}>
+					element={
+						<Layout
+							isLogIn={isLogIn}
+							setIsLogIn={setIsLogIn}
+							newAccount={newAccount}
+							setNewAccount={setNewAccount}
+						/>
+					}>
 					<Route index element={<MainPage isLogIn={isLogIn} />} />
 					<Route path=':movieId' element={<DetailPage />} />
 					<Route path='search' element={<SearchPage />} />
@@ -51,7 +64,11 @@ function App() {
 					path='/auth'
 					element={
 						<>
-							<AuthPage setIsLogIn={setIsLogIn} />
+							<AuthPage
+								setIsLogIn={setIsLogIn}
+								newAccount={newAccount}
+								setNewAccount={setNewAccount}
+							/>
 						</>
 					}
 				/>
