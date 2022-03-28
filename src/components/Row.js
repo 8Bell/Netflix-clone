@@ -8,17 +8,17 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { useModalClose } from '../hooks/useModalClose';
 
-export default function Row({ title, id, fetchURL, isLargeRow, isBlur, isLogIn }) {
+export default function Row({ title, id, fetchURL, isLargeRow, isBlur, isLogIn, userObj }) {
 	const [movies, setMovies] = useState([]);
 	const [modalOpen, setModalOpen, clickRef] = useModalClose();
 	const [movieSelected, setMovieSelected] = useState({});
-	const [checkLogIN, setCheckLogIN] = useState(isLogIn);
 
 	//const w = Math.round(window.innerWidth / 300) + 1;
 
 	useEffect(() => {
 		fetchMovieData();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
+		console.log('userObj', userObj);
 	}, [fetchURL, isLogIn]);
 
 	useEffect(() => {}, [isLogIn]);
@@ -32,12 +32,11 @@ export default function Row({ title, id, fetchURL, isLargeRow, isBlur, isLogIn }
 	const handleClick = (movie) => {
 		setModalOpen(true);
 		setMovieSelected(movie);
-		console.log(movieSelected);
 	};
 
 	return (
 		<>
-			<section className={`row ${isBlur && !isLogIn.isLogIn && 'rowBlur'}`}>
+			<section className={`row ${isBlur && !isLogIn && 'rowBlur'}`}>
 				<h2 className='category__title'>{title}</h2>
 				<div className='slider'>
 					<Swiper
@@ -108,6 +107,7 @@ export default function Row({ title, id, fetchURL, isLargeRow, isBlur, isLogIn }
 						setModalOpen={setModalOpen}
 						clickRef={clickRef}
 						isLogIn={isLogIn}
+						userObj={userObj}
 					/>
 				)}
 			</section>

@@ -73,6 +73,7 @@ export default function AuthPage({ setIsLogIn, newAccount, setNewAccount }) {
 		let provider = new firebaseInstance.auth.GoogleAuthProvider();
 		const data = await authService.signInWithPopup(provider);
 		navigate('/');
+		setIsLogIn(true);
 		window.location.reload();
 	};
 

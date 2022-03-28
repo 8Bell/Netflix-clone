@@ -29,13 +29,17 @@ const Layout = ({ isLogIn, setIsLogIn, newAccount, setNewAccount }) => {
 function App() {
 	const [init, setInit] = useState(false);
 	const [newAccount, setNewAccount] = useState(true);
-
+	const [userObj, setUserObj] = useState(null);
 	const [isLogIn, setIsLogIn] = useState(authService.currentUser);
+
 	console.log('authService.currentUser', authService.currentUser);
+	console.log('userObj', userObj);
+
 	useEffect(() => {
 		authService.onAuthStateChanged((user) => {
 			if (user) {
 				setIsLogIn(true);
+				setUserObj(user);
 			} else {
 				setIsLogIn(false);
 			}
@@ -56,7 +60,10 @@ function App() {
 							setNewAccount={setNewAccount}
 						/>
 					}>
-					<Route index element={<MainPage isLogIn={isLogIn} />} />
+					<Route
+						index
+						element={<MainPage isLogIn={isLogIn} userObj={userObj} />}
+					/>
 					<Route path=':movieId' element={<DetailPage />} />
 					<Route path='search' element={<SearchPage />} />
 				</Route>

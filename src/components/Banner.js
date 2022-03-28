@@ -6,7 +6,7 @@ import './Row.css';
 import styled from 'styled-components';
 import MovieModal from './MovieModal';
 
-export default function Banner() {
+export default function Banner({ isLogIn }) {
 	const [movie, setMovie] = useState([]);
 	const [isClicked, setIsClicked] = useState(false);
 	const [noVideo, setNoVideo] = useState(true);
@@ -90,17 +90,25 @@ export default function Banner() {
 								className='banner__button info'
 								onClick={() => handleClick(movie)}>
 								<div className='space'></div>
-								{window.innerWidth < 768 ? 'Info' : 'More Information'}
+								{window.innerWidth < 768
+									? 'Info'
+									: 'More Information'}
 							</button>
 						</div>
 						{/* Div > 2 BUTTONS */}
-						<h1 className='banner__description'>{truncate(movie?.overview, 100)}</h1>
+						<h1 className='banner__description'>
+							{truncate(movie?.overview, 100)}
+						</h1>
 						{/* Description */}
 					</div>
 					<div className='banner--fadeBottom' />
 				</header>
 				{bannerModal && (
-					<MovieModal {...bannerMovieSelected} setModalOpen={setBannerModal} />
+					<MovieModal
+						{...bannerMovieSelected}
+						setModalOpen={setBannerModal}
+						isLogIn={isLogIn}
+					/>
 				)}
 			</>
 		);

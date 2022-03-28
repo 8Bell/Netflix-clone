@@ -1,5 +1,5 @@
 import { dbService } from 'fbase';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './MovieModal.css';
 
 function MovieModal({
@@ -7,21 +7,49 @@ function MovieModal({
 	title,
 	overview,
 	name,
+	original_name,
 	release_date,
 	first_air_date,
 	vote_average,
 	clickRef,
 	setModalOpen,
 	isLogIn,
+	userObj,
 }) {
 	const [comment, setComment] = useState('');
+	const [comments, setComments] = useState([]);
+
+	// const getComments = async () => {
+	// 	const dbComments = await dbService.collection(name).get();
+	// 	dbComments.forEach((document) => {
+	// 		const commentObj = {
+	// 			...document.data(),
+	// 			id: document.id,
+	// 		};
+	// 		setComments((prev) => [commentObj, ...prev]);
+	// 	});
+	// };
+	useEffect(() => {
+		console.log();
+		dbService.collection(title || name || original_name).onSnapshot((snapshot) => {
+			const commentArr = snapshot.docs.map((doc) => ({
+				id: doc.id,
+				...doc.data(),
+			}));
+			setComments(commentArr);
+		});
+	}, []);
+
 	const onChange = (e) => {
 		setComment(e.target.value);
 	};
-	const onSubmit = (e) => {
+	const onSubmit = async (e) => {
 		e.preventDefault();
-		dbService.collection('netflix').add({
-			comment,
+		await dbService.collection(title || name || original_name).add({
+			movidId: title || name || original_name,
+			creatorId: userObj.uid,
+			creatorName: userObj.displayname || userObj.email,
+			comment: comment,
 			createdAt: Date.now(),
 		});
 		setComment('');
@@ -55,8 +83,15 @@ function MovieModal({
 						<h2 className='modal__title'>{title ? title : name}</h2>
 						<p className='modal__overview'>평점: {vote_average}</p>
 						<p className='modal__overview'>{overview}</p>
-						<div></div>
-						{isLogIn.isLogIn && (
+						<div>
+							{comments.map((comment) => (
+								<div key={comment.id}>
+									<h4>{comment.comment}</h4>
+									<h4>{comment.creatorName}</h4>
+								</div>
+							))}
+						</div>
+						{isLogIn && (
 							<div>
 								<form onSubmit={onSubmit}>
 									<input
