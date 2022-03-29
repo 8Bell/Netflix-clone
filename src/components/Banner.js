@@ -5,14 +5,16 @@ import './Banner.css';
 import './Row.css';
 import styled from 'styled-components';
 import MovieModal from './MovieModal';
+import { useModalClose } from 'hooks/useModalClose';
 
-export default function Banner({ isLogIn }) {
+export default function Banner({ isLogIn, userObj }) {
 	const [movie, setMovie] = useState([]);
 	const [isClicked, setIsClicked] = useState(false);
 	const [noVideo, setNoVideo] = useState(true);
 
 	// 모달창 열기
-	const [bannerModal, setBannerModal] = useState(false);
+	// const [bannerModal, setBannerModal] = useState(false);
+	const [bannerModal, setBannerModal, clickRef] = useModalClose();
 	const [bannerMovieSelected, setBannerMovieSelected] = useState({});
 	const handleClick = (movie) => {
 		setBannerModal(true);
@@ -108,6 +110,8 @@ export default function Banner({ isLogIn }) {
 						{...bannerMovieSelected}
 						setModalOpen={setBannerModal}
 						isLogIn={isLogIn}
+						userObj={userObj}
+						clickRef={clickRef}
 					/>
 				)}
 			</>

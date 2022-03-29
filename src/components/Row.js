@@ -33,7 +33,7 @@ export default function Row({ title, id, fetchURL, isLargeRow, isBlur, isLogIn, 
 		setModalOpen(true);
 		setMovieSelected(movie);
 	};
-
+	console.log(movieSelected);
 	return (
 		<>
 			<section className={`row ${isBlur && !isLogIn && 'rowBlur'}`}>

@@ -7,7 +7,7 @@ export default function MainPage({ isLogIn, userObj }) {
 	console.log('isLogIn', isLogIn);
 	return (
 		<div>
-			<Banner fetchURL={requests.fetchTrending} isLogIn={isLogIn} />
+			<Banner fetchURL={requests.fetchTrending} isLogIn={isLogIn} userObj={userObj} />
 
 			<Row
 				title='NETFILX ORIGINALS'

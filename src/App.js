@@ -7,6 +7,7 @@ import MainPage from './pages/MainPage';
 import SearchPage from './pages/SearchPage';
 import RowBlur from './components/RowBlur';
 import { useEffect, useState } from 'react';
+
 import AuthPage from './pages/AuthPage/Auth';
 import { authService } from 'fbase';
 

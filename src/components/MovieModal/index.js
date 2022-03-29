@@ -1,5 +1,6 @@
 import { dbService } from 'fbase';
 import { useEffect, useState } from 'react';
+import Comment from './Comment';
 import './MovieModal.css';
 
 function MovieModal({
@@ -18,6 +19,7 @@ function MovieModal({
 }) {
 	const [comment, setComment] = useState('');
 	const [comments, setComments] = useState([]);
+	const titles = title || name || original_name;
 
 	// const getComments = async () => {
 	// 	const dbComments = await dbService.collection(name).get();
@@ -30,8 +32,7 @@ function MovieModal({
 	// 	});
 	// };
 	useEffect(() => {
-		console.log();
-		dbService.collection(title || name || original_name).onSnapshot((snapshot) => {
+		dbService.collection(titles).onSnapshot((snapshot) => {
 			const commentArr = snapshot.docs.map((doc) => ({
 				id: doc.id,
 				...doc.data(),
@@ -45,8 +46,8 @@ function MovieModal({
 	};
 	const onSubmit = async (e) => {
 		e.preventDefault();
-		await dbService.collection(title || name || original_name).add({
-			movidId: title || name || original_name,
+		await dbService.collection(titles).add({
+			movidId: titles,
 			creatorId: userObj.uid,
 			creatorName: userObj.displayname || userObj.email,
 			comment: comment,
@@ -80,10 +81,13 @@ function MovieModal({
 						<p className='modal__overview'>{overview}</p>
 						<div>
 							{comments.map((comment) => (
-								<div key={comment.id}>
-									<h4>{comment.comment}</h4>
-									<h4>{comment.creatorName}</h4>
-								</div>
+								<Comment
+									key={comment.id}
+									commentObj={comment}
+									isOwner={comment.creatorId === userObj.uid}
+									titles={titles}
+									onChange={onchange}
+								/>
 							))}
 						</div>
 						{isLogIn && (
