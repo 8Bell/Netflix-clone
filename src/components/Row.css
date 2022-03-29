@@ -33,7 +33,7 @@ h2 {
 	pointer-events: none;
 }
 .row__posterBox {
-	transform: translate(0%, 14%);
+	transform: translate(0%, 13%) !important;
 }
 .row__posters {
 	display: flex;

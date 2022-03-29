@@ -1,6 +1,6 @@
 .modal {
 	position: relative;
-	max-width: 600px;
+	max-width: 768px;
 
 	box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14),
 		0px 1px 14px 0px rgba(0, 0, 0, 0.12);
@@ -11,7 +11,7 @@
 	animation: fadeIn 400ms;
 }
 .modal__poster-img {
-	width: 600px;
+	width: 768px;
 	height: auto;
 	position: fixed;
 	overflow: hidden;
@@ -93,6 +93,19 @@
 	.modal {
 		overflow-y: scroll !important;
 	}
+	.modal__content {
+		margin: 60% 0px 0 0;
+		padding: 0 30px;
+	}
+
+	.modal__poster-img {
+		width: 100%;
+		height: auto;
+		position: fixed;
+		overflow: hidden;
+		z-index: 30;
+		top: 0;
+	}
 }
 @keyframes fadeIn {
 	from {
@@ -103,4 +116,11 @@
 		opacity: 1;
 		transform: scale(1);
 	}
+}
+
+.comments__wrapper {
+	background-color: #46d369;
+	width: 100%;
+	min-height: 10em;
+	padding: 0px;
 }

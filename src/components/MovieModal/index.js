@@ -79,31 +79,38 @@ function MovieModal({
 						<h2 className='modal__title'>{title ? title : name}</h2>
 						<p className='modal__overview'>평점: {vote_average}</p>
 						<p className='modal__overview'>{overview}</p>
-						<div>
-							{comments.map((comment) => (
-								<Comment
-									key={comment.id}
-									commentObj={comment}
-									isOwner={comment.creatorId === userObj.uid}
-									titles={titles}
-									onChange={onchange}
-								/>
-							))}
-						</div>
-						{isLogIn && (
-							<div>
-								<form onSubmit={onSubmit}>
-									<input
-										type='text'
-										placeholder='감상평을 남겨주세요.'
-										maxLength={40}
-										value={comment}
-										onChange={onChange}></input>
 
-									<input type='submit' value='남기기'></input>
-								</form>
+						<div className='comments__wrapper'>
+							{isLogIn && (
+								<div>
+									<form onSubmit={onSubmit}>
+										<input
+											type='text'
+											placeholder='감상평을 남겨주세요.'
+											maxLength={40}
+											value={comment}
+											onChange={onChange}></input>
+
+										<input
+											type='submit'
+											value='남기기'></input>
+									</form>
+								</div>
+							)}
+							<div>
+								{comments.map((comment) => (
+									<Comment
+										key={comment.id}
+										commentObj={comment}
+										isOwner={
+											comment.creatorId === userObj.uid
+										}
+										titles={titles}
+										onChange={onchange}
+									/>
+								))}
 							</div>
-						)}
+						</div>
 					</div>
 				</div>
 			</div>

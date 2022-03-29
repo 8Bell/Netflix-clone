@@ -96,7 +96,7 @@ export default function Nav({ isLogIn, newAccount, setNewAccount }) {
 						<p className='nav__userName'>
 							{authService.currentUser.displayName ||
 								authService.currentUser.email}
-							님
+							님 반갑습니다.
 						</p>
 						<img
 							alt='User logged'

@@ -43,7 +43,7 @@ export default function Comment({ commentObj, isOwner, titles, onChange }) {
 					{isOwner && (
 						<>
 							<button onClick={onDeleteClick}>╳</button>
-							<button onClick={toggleEditing}>✎</button>
+							{/* <button onClick={toggleEditing}>✎</button> */}
 						</>
 					)}
 				</>
