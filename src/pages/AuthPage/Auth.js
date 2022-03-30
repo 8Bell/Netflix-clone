@@ -165,7 +165,7 @@ export default function AuthPage({ setIsLogIn, newAccount, setNewAccount }) {
 							</div>
 						</div>
 					</div>
-				</div>
+				</div>{' '}
 				<div className='AuthFooterContainer'>
 					<div className='FooterContent'>
 						<div className='FooterLinkContainer'>

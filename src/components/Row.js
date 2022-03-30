@@ -53,6 +53,22 @@ export default function Row({ title, id, fetchURL, isLargeRow, isBlur, isLogIn, 
 						//slidesPerView={w} // 창 크기에 따라 표시되는 영화의 개수 조절
 						//slidesPerGroup={Math.round(w / 2)} // 표시되는 영화 개수의 절반만 슬라이드
 						breakpoints={{
+							2978: {
+								slidesPerView: 9,
+								slidesPerGroup: 9,
+							},
+							2578: {
+								slidesPerView: 8,
+								slidesPerGroup: 8,
+							},
+							2178: {
+								slidesPerView: 7,
+								slidesPerGroup: 7,
+							},
+							1778: {
+								slidesPerView: 6,
+								slidesPerGroup: 6,
+							},
 							1378: {
 								slidesPerView: 5,
 								slidesPerGroup: 5,
