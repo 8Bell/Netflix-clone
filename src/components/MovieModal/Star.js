@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { FaStar, FaStarHalf } from 'react-icons/fa';
+import { FaStar } from 'react-icons/fa';
 import styled from 'styled-components';
 
 const ARRAY = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-function Rating() {
+export default function Rating() {
 	const [clicked, setClicked] = useState([
 		false,
 		false,
@@ -35,93 +35,35 @@ function Rating() {
 	};
 
 	return (
-		<Wrap>
-			<Star style={{ display: 'inline' }}>
-				{ARRAY.map((el, idx) => {
-					return (
-						<FaStar
-							key={idx}
-							size='50'
-							onClick={() => handleStarClick(el)}
-							className={clicked[el] && 'yellowStar'}
-							style={{ transform: 'scaleX(-1)' }}
-						/>
-					);
-				})}
-			</Star>
-
-			{/* <BackStars>
-				{ARRAY.map((el, idx) => {
-					return (
-						<FaStarHalf
-							key={idx}
-							size='50'
-							onClick={() => handleStarClick(el)}
-							className={clicked[el] && 'yellowStar'}
-							style={{ transform: 'scaleX(-1)' }}
-						/>
-					);
-				})}
-			</BackStars> */}
-		</Wrap>
+		<div>
+			<h1 className='rate'>{clicked}</h1>
+			<div className='input__rating'>
+				<div className='backStar_wrapper'>
+					<img className='backStar' src='/images/grayStar.png' />
+					<img className='backStar' src='/images/grayStar.png' />
+					<img className='backStar' src='/images/grayStar.png' />
+					<img className='backStar' src='/images/grayStar.png' />
+					<img className='backStar' src='/images/grayStar.png' />
+				</div>
+				<div className='yellowStar_wrapper'>
+					{ARRAY.map((el, idx) => {
+						return (
+							<img
+								key={idx}
+								onClick={() => handleStarClick(el)}
+								className={
+									clicked[el]
+										? idx % 2 === 0
+											? 'yellowStar'
+											: 'yellowStar--reverse'
+										: 'grayStar'
+								}
+								src='/images/yellowStarHalf.png'
+							/>
+						);
+					})}
+				</div>
+			</div>
+		</div>
 	);
 }
-
-export default Rating;
-
-const Wrap = styled.div`
-	position: absolute;
-	width: 100%;
-	height: 100px;
-	background-color: green;
-	flex-direction: column;
-	display: inlign;
-`;
-
-const Star = styled.div`
-	position: absolute;
-	display: flex;
-	margin-right: 25px;
-	overflow: hidden;
-
-	& svg {
-		color: gray;
-		cursor: pointer;
-	}
-
-	:hover svg {
-		color: #fcc419;
-	}
-
-	& svg:hover ~ svg {
-		color: gray;
-	}
-
-	.yellowStar {
-		color: #fcc419;
-	}
-`;
-
-// const BackStars = styled.div`
-// 	position: absolute;
-// 	background-color: rgba(0, 0, 0, 0.1);
-// 	display: flex;
-// 	padding-top: 5px;
-
-// 	& svg {
-// 		color: gray;
-// 		cursor: pointer;
-// 	}
-
-// 	:hover svg {
-// 		color: transparent;
-// 	}
-
-// 	& svg:hover ~ svg {
-// 		color: gray;
-// 	}
-
-// 	.yellowStar {
-// 		color: #fcc419;
-// 	}
-// `;
