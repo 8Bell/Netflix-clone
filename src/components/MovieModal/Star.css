@@ -1,0 +1,111 @@
+.rate_box {
+	position: relative;
+	padding: 0 20%;
+	margin: 20px 20px;
+	background-color: rgb(40, 98, 78);
+	width: carc(100%-20px);
+	height: 70px;
+}
+.rate {
+	position: relative;
+	display: inline-block;
+	color: aliceblue;
+	font-size: 20px;
+}
+
+.input__rating {
+}
+.Star_wrapper {
+	position: relative;
+
+	display: inline-block;
+}
+/* .backStar_wrapper {
+	position: absolute;
+}
+
+.backStar {
+	z-index: 10;
+	width: 40px;
+	height: 40px;
+	filter: grayscale(100%);
+}
+.backStar:hover {
+	filter: grayscale(0%);
+} */
+
+.yellowStar_wrapper {
+	position: absolute;
+
+	width: 200px;
+	height: 40px;
+	display: inline;
+}
+
+.grayStar {
+	filter: grayscale(100%);
+	z-index: 13;
+
+	width: 20px;
+	height: 40px;
+	display: inline;
+}
+
+/* .grayStar:hover {
+	filter: grayscale(0%);
+} */
+.grayStar--reverse {
+	transform: scaleX(-1);
+	filter: grayscale(100%);
+	z-index: 13;
+
+	width: 20px;
+	height: 40px;
+	display: inline;
+}
+/* .grayStar--reverse:hover {
+	filter: grayscale(0%);
+} */
+
+.yellowStar {
+	filter: grayscale(0%);
+	z-index: 14;
+
+	width: 20px;
+	height: 40px;
+	display: inline;
+}
+/* .yellowStar:hover {
+	opacity: 100%;
+} */
+
+.yellowStar--reverse {
+	transform: scaleX(-1);
+	filter: grayscale(0%);
+	z-index: 14;
+	width: 20px;
+	height: 40px;
+	display: inline;
+}
+
+img:hover img {
+	filter: grayscale(0%);
+}
+
+img:hover ~ img {
+	filter: grayscale(100%);
+}
+
+/* .yellowStar--reverse:hover {
+	opacity: 100%;
+} */
+
+/* .yellowStar_wrapper > img {
+	filter: grayscale(100%);
+}
+.yellowStar_wrapper > :hover img {
+	filter: grayscale(0%);
+}
+.yellowStar_wrapper > img:hover ~ img {
+	filter: grayscale(100%);
+} */

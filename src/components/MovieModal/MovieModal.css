@@ -142,54 +142,6 @@
 	z-index: 13;
 	background-color: coral;
 }
-.backStar_wrapper {
-	position: absolute;
-}
-
-.backStar {
-	z-index: 10;
-
-	width: 40px;
-	height: 40px;
-}
-.yellowStar_wrapper {
-	position: absolute;
-	width: 400px;
-	height: 40px;
-	display: inline;
-}
-.grayStar {
-	opacity: 0%;
-	z-index: 13;
-
-	width: 20px;
-	height: 40px;
-	display: inline;
-}
-
-.yellowStar {
-	opacity: 100%;
-	z-index: 14;
-
-	width: 20px;
-	height: 40px;
-	display: inline;
-}
-.yellowStar:hover {
-	opacity: 100%;
-}
-
-.yellowStar--reverse {
-	transform: scaleX(-1);
-	opacity: 100%;
-	z-index: 14;
-	width: 20px;
-	height: 40px;
-	display: inline;
-}
-.yellowStar--reverse:hover {
-	opacity: 100%;
-}
 
 .comments__form--hanlder {
 	background-color: azure;
