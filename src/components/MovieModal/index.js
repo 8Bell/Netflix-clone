@@ -2,6 +2,7 @@ import { dbService } from 'fbase';
 import { useEffect, useState } from 'react';
 import Comment from './Comment';
 import './MovieModal.css';
+import Rating from './Star';
 
 function MovieModal({
 	backdrop_path,
@@ -19,7 +20,9 @@ function MovieModal({
 }) {
 	const [comment, setComment] = useState('');
 	const [comments, setComments] = useState([]);
+
 	const titles = title || name || original_name;
+	const ARRAY = [0, 1, 2, 3, 4];
 
 	// const getComments = async () => {
 	// 	const dbComments = await dbService.collection(name).get();
@@ -82,32 +85,40 @@ function MovieModal({
 
 						<div className='comments__wrapper'>
 							{isLogIn && (
-								<div>
+								<div className='comments__forms'>
 									<form onSubmit={onSubmit}>
-										<input
-											type='text'
-											placeholder='감상평을 남겨주세요.'
-											maxLength={40}
-											value={comment}
-											onChange={onChange}></input>
+										<Rating></Rating>
+										<div className='comments__form--hanlder'>
+											<input
+												className='comments__forms--input'
+												type='text'
+												placeholder=' 감상평을 남겨주세요.'
+												maxLength={40}
+												value={comment}
+												onChange={onChange}></input>
 
-										<input
-											type='submit'
-											value='남기기'></input>
+											<input
+												className='comments__forms--submit'
+												type='submit'
+												value='남기기'></input>
+										</div>
 									</form>
 								</div>
 							)}
-							<div>
+							<div className='comments__comments'>
 								{comments.map((comment) => (
-									<Comment
-										key={comment.id}
-										commentObj={comment}
-										isOwner={
-											comment.creatorId === userObj.uid
-										}
-										titles={titles}
-										onChange={onchange}
-									/>
+									<div className='comments__comment'>
+										<Comment
+											key={comment.id}
+											commentObj={comment}
+											isOwner={
+												comment.creatorId ===
+												userObj.uid
+											}
+											titles={titles}
+											onChange={onchange}
+										/>
+									</div>
 								))}
 							</div>
 						</div>
