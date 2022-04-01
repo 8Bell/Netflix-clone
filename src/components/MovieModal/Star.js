@@ -17,29 +17,27 @@ export default function Rating({ clickedStar, setClickedStar, score, setScore })
 		<div className=' rate_box'>
 			<p className='rate_msg'>별점을 선택해주세요.</p>
 			<div className='input__rating'>
-				<div className='Star_wrapper'>
-					<div className='yellowStar_wrapper'>
-						{ARRAY.map((el, idx) => {
-							return (
-								<img
-									id={idx}
-									key={idx}
-									onClick={() => handleStarClick(el)}
-									className={
-										clickedStar[el]
-											? idx % 2 === 0
-												? 'yellowStar'
-												: 'yellowStar--reverse'
-											: idx % 2 === 0
-											? 'grayStar'
-											: 'grayStar--reverse'
-									}
-									src='/images/yellowStarHalf.png'
-								/>
-							);
-						})}
-						<p className='rate'>{score}</p>
-					</div>
+				<div className='yellowStar_wrapper'>
+					{ARRAY.map((el, idx) => {
+						return (
+							<img
+								id={idx}
+								key={idx}
+								onClick={() => handleStarClick(el)}
+								className={
+									clickedStar[el]
+										? idx % 2 === 0
+											? 'yellowStar'
+											: 'yellowStar--reverse'
+										: idx % 2 === 0
+										? 'grayStar'
+										: 'grayStar--reverse'
+								}
+								src='/images/yellowStarHalf.png'
+							/>
+						);
+					})}
+					<p className='rate'>{score}</p>
 				</div>
 			</div>
 		</div>

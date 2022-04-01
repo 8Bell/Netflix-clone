@@ -48,9 +48,28 @@
 
 .comment__yellowStar--reverse {
 	transform: scaleX(-1);
-	filter: grayscale(0%);
-	z-index: 14;
 	width: 10px;
 	height: 20px;
-	display: inline;
+}
+
+@media (max-width: 768px) {
+	.comment__grayStar {
+		width: 9px;
+		height: 18px;
+	}
+
+	.comment__grayStar--reverse {
+		width: 9px;
+		height: 18px;
+	}
+
+	.comment__yellowStar {
+		width: 9px;
+		height: 18px;
+	}
+
+	.comment__yellowStar--reverse {
+		width: 9px;
+		height: 18px;
+	}
 }

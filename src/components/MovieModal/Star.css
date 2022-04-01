@@ -33,14 +33,6 @@
 	width: 100%;
 	height: 75px;
 	/* background-color: coral; */
-	display: inline-block;
-}
-
-.Star_wrapper {
-	position: absolute;
-	display: inline;
-	left: 23%;
-	top: 12%;
 }
 
 .yellowStar_wrapper {
@@ -49,6 +41,11 @@
 	width: 180px;
 	height: 36px;
 	display: inline;
+	/* background-color: darkcyan; */
+
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%) !important;
 }
 
 .grayStar {
@@ -116,4 +113,50 @@
 	transition-property: all;
 	transition-timing-function: ease-in;
 	transition: all 0.5s;
+}
+
+@media (max-width: 768px) {
+	.rate {
+		position: relative;
+		display: inline-block;
+		margin-top: 4px;
+		font-weight: 700;
+		color: rgb(206, 113, 113);
+		font-size: 23px;
+		text-align: center;
+		width: 100%;
+	}
+	.rate_msg {
+		position: relative;
+		display: inline-block;
+		font-size: 16px;
+		text-align: center;
+		width: 98%;
+		margin: 5px 0 0px 0;
+	}
+
+	.yellowStar_wrapper {
+		width: 150px;
+		height: 30px;
+	}
+
+	.grayStar {
+		width: 15px;
+		height: 30px;
+	}
+
+	.grayStar--reverse {
+		width: 15px;
+		height: 30px;
+	}
+
+	.yellowStar {
+		width: 15px;
+		height: 30px;
+	}
+
+	.yellowStar--reverse {
+		width: 15px;
+		height: 30px;
+	}
 }
