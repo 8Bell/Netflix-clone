@@ -171,8 +171,11 @@
 	}
 
 	.authInput {
+		border-radius: 10px;
 	}
 	.authSubmit {
+		height: 50px;
+		padding: 19px 25px;
 	}
 
 	.AuthFooterContainer {

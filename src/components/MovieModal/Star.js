@@ -33,7 +33,7 @@ export default function Rating({ clickedStar, setClickedStar, score, setScore })
 										? 'grayStar'
 										: 'grayStar--reverse'
 								}
-								src='/images/yellowStarHalf.png'
+								src='./images/yellowStarHalf.png'
 							/>
 						);
 					})}

@@ -25,7 +25,7 @@ export default function Rated({ rate }) {
 										? 'comment__grayStar'
 										: 'comment__grayStar--reverse'
 								}
-								src='/images/yellowStarHalf.png'
+								src='./images/yellowStarHalf.png'
 							/>
 						);
 					})}
