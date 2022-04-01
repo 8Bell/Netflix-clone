@@ -1,13 +1,15 @@
 import { dbService } from 'fbase';
 import React, { useState } from 'react';
+import Rated from './CommnetStar';
+import './Comment.css';
 
 export default function Comment({ commentObj, isOwner, titles, onChange }) {
 	const [editing, setEditing] = useState(false);
 	const [newComment, setNewComment] = useState(commentObj.comment);
 
 	const onDeleteClick = async () => {
-		//const ok = window.confirm('정말 삭제하시겠습니까?');
-		if (1 == 1) {
+		const ok = window.confirm('정말 삭제하시겠습니까?');
+		if (ok) {
 			console.log(titles);
 			console.log(`${titles}/${commentObj.id}`);
 			await dbService.doc(`${titles}/${commentObj.id}`).delete();
@@ -38,11 +40,26 @@ export default function Comment({ commentObj, isOwner, titles, onChange }) {
 				</>
 			) : (
 				<>
-					<h4>{commentObj.comment}</h4>
-					<h4>{commentObj.creatorName}</h4>
+					<Rated rate={commentObj.rate} />
+					<p className='comment__rateScore'>{commentObj.rateScore}</p>
+					<p
+						clsssName='comment__para'
+						style={{ fontSize: '20px', margin: '15px 0' }}>
+						{commentObj.comment}
+					</p>
+					<p className='comment__userName'>
+						{commentObj.creatorName}&nbsp;&nbsp;|&nbsp;&nbsp;
+					</p>
+
+					<p className='comment__date'> {commentObj.date} &nbsp;&nbsp;</p>
+
 					{isOwner && (
 						<>
-							<button onClick={onDeleteClick}>╳</button>
+							<button
+								className='comment__deleteBtn'
+								onClick={onDeleteClick}>
+								╳
+							</button>
 							{/* <button onClick={toggleEditing}>✎</button> */}
 						</>
 					)}

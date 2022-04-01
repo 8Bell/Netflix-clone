@@ -1,0 +1,56 @@
+.input__rating {
+	position: relative;
+	width: 100%;
+	height: 75px;
+
+	display: inline-block;
+}
+
+.Star_wrapper {
+	position: absolute;
+	display: inline;
+	left: 23%;
+	top: 12%;
+}
+
+.comment__yellowStar_wrapper {
+	position: absolute;
+
+	width: 100px;
+	height: 20px;
+	display: inline;
+}
+
+.comment__grayStar {
+	filter: grayscale(100%);
+	z-index: 13;
+	width: 10px;
+	height: 20px;
+	display: inline;
+}
+
+.comment__grayStar--reverse {
+	transform: scaleX(-1);
+	filter: grayscale(100%);
+	z-index: 13;
+	width: 10px;
+	height: 20px;
+	display: inline;
+}
+
+.comment__yellowStar {
+	filter: grayscale(0%);
+	z-index: 14;
+	width: 10px;
+	height: 20px;
+	display: inline;
+}
+
+.comment__yellowStar--reverse {
+	transform: scaleX(-1);
+	filter: grayscale(0%);
+	z-index: 14;
+	width: 10px;
+	height: 20px;
+	display: inline;
+}

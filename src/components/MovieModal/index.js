@@ -22,7 +22,6 @@ function MovieModal({
 	const [comments, setComments] = useState([]);
 
 	const titles = title || name || original_name;
-	const ARRAY = [0, 1, 2, 3, 4];
 
 	// const getComments = async () => {
 	// 	const dbComments = await dbService.collection(name).get();
@@ -34,6 +33,22 @@ function MovieModal({
 	// 		setComments((prev) => [commentObj, ...prev]);
 	// 	});
 	// };
+	const [clickedStar, setClickedStar] = useState([
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+	]);
+
+	const [score, setScore] = useState('');
+	let today = new Date();
+
 	useEffect(() => {
 		dbService.collection(titles).onSnapshot((snapshot) => {
 			const commentArr = snapshot.docs.map((doc) => ({
@@ -55,8 +70,18 @@ function MovieModal({
 			creatorName: userObj.displayname || userObj.email,
 			comment: comment,
 			createdAt: Date.now(),
+			date:
+				today.toLocaleDateString() +
+				' ' +
+				today.getHours() +
+				':' +
+				today.getMinutes(),
+			rate: clickedStar,
+			rateScore: clickedStar.filter(Boolean).length,
 		});
 		setComment('');
+		setScore('');
+		setClickedStar([false, false, false, false, false, false, false, false, false, false]);
 	};
 
 	return (
@@ -75,7 +100,8 @@ function MovieModal({
 					<div className='modal__content'>
 						<p className='modal__details'>
 							<span className='modal__user-perc'>
-								{Math.round(Math.random() * 50 + 50)}% for you
+								{Math.round(25 + vote_average * 0.75 * 10)} % for
+								you &nbsp;
 							</span>{' '}
 							{release_date ? release_date : first_air_date}
 						</p>
@@ -85,23 +111,36 @@ function MovieModal({
 
 						<div className='comments__wrapper'>
 							{isLogIn && (
-								<div className='comments__forms'>
+								<div
+									className={`comments__forms ${
+										score >= 1 && 'comment__forms_open'
+									}`}>
 									<form onSubmit={onSubmit}>
-										<Rating></Rating>
-										<div className='comments__form--hanlder'>
-											<input
-												className='comments__forms--input'
-												type='text'
-												placeholder=' 감상평을 남겨주세요.'
-												maxLength={40}
-												value={comment}
-												onChange={onChange}></input>
+										<Rating
+											clickedStar={clickedStar}
+											setClickedStar={setClickedStar}
+											score={score}
+											setScore={setScore}
+										/>
+										{score >= 1 && (
+											<div className='comments__form--hanlder'>
+												<input
+													className='comments__forms--input'
+													type='text'
+													placeholder=' 감상평을 남겨주세요.'
+													maxLength={40}
+													value={comment}
+													required
+													onChange={
+														onChange
+													}></input>
 
-											<input
-												className='comments__forms--submit'
-												type='submit'
-												value='남기기'></input>
-										</div>
+												<input
+													className='comments__forms--submit'
+													type='submit'
+													value='남기기'></input>
+											</div>
+										)}
 									</form>
 								</div>
 							)}
