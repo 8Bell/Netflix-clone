@@ -14,13 +14,13 @@
 }
 
 .input__rating {
-}
-.Star_wrapper {
 	position: relative;
 
 	display: inline-block;
 }
-/* .backStar_wrapper {
+.Star_wrapper {
+}
+.backStar_wrapper {
 	position: absolute;
 }
 
@@ -32,7 +32,7 @@
 }
 .backStar:hover {
 	filter: grayscale(0%);
-} */
+}
 
 .yellowStar_wrapper {
 	position: absolute;
