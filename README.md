@@ -1,4 +1,4 @@
-# Netflix Clone v4.2.3
+# Netflix Clone v4.5.0
 
 <br>
 
@@ -7,8 +7,9 @@
 ### 직접 사용해보세요 ⇩
 
 <br>
-https://netfilx-clone-loginable.netlify.app (v.4.2.3)<br>
-- firebase 를 사용한 로그인 기능 추가 예정
+https://8bell.github.io/Netflix-clone/ (v.4.5.2)<br>
+- firebase 를 사용해 email과 Google 로그인이 가능하도록 했습니다. <br/>
+- 영화 모달창 내부에서 별을 사용한 평점과 한줄평을 남길 수 있도록 했습니다. 
 
 <br>
 <br>
@@ -27,7 +28,8 @@ https://netfilx-clone-loginable.netlify.app (v.4.2.3)<br>
 
 # 📢
 
-### 메인화면의 Log in/ Log out 상태 UI 를 구현했습니다.(v4.2.3)
+###  E-mail혹은 Google 계정을 사용해 로그인이 가능하도록 했습니다. (v4.5.0)
+###  로그인을 했을 경우 별점을 사용해 영화의 평점과 한줄평을 남길 수 있도록 구현했습니다.(v4.5.0)
 
 ### swipe 를 사용하여 slide를 구현했습니다.
 
